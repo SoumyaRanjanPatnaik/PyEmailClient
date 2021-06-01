@@ -1,3 +1,4 @@
+/* Top Bar with search, name, logo, settings, etc */
 #topbar{
     grid-column: 1/8;
     display: flex;

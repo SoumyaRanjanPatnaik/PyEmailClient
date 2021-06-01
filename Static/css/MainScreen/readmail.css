@@ -1,3 +1,5 @@
+
+/* Section to read the mail. Has subject, sender's name and mail, attatchments, etc */
 #readmail{
     grid-column: 4/8;
 }

@@ -1,3 +1,4 @@
+/* sidebar/navbar for inbox, sent, trash, spam, etc  */
 nav{
     grid-column: 1/2;
     display: flex;
