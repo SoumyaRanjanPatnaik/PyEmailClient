@@ -1,0 +1,6 @@
+#topbar{
+    grid-column: 1/8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
