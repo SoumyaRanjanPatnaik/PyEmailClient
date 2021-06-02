@@ -3,6 +3,7 @@ nav{
     grid-column: 1/2;
     margin:0;
     height: 100%;
+    
 }
 
 .menu-bar{
@@ -17,11 +18,15 @@ nav{
     list-style: none;
     padding:0;
     color: white;
+    
+    padding: 5px 0px;
 }
 .menu-bar ul li{
    
     padding: 20px;
     width: 140px;
+    transition: border-radius 0.1s  ease-in-out;
+    border-radius: 20px;
 }
 .menu-bar ul li a{
     text-decoration: none;
@@ -30,6 +35,9 @@ nav{
 .active,.menu-bar ul li:hover{
     background-color: #2bab0d;
     border-radius: 20px;
+    border-top-right-radius: 2px;
+
+    
 
 } 
 .menu-bar .fa{
@@ -42,7 +50,10 @@ nav{
     display: block;
     position: absolute;
     background: rgb(0,100,0);
-    left: 160px;
+    left: 145px;
     top: 25px;
     border-radius: 30px;
+    top: 70px;
+    
+    
 }
