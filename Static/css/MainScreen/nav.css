@@ -1,40 +1,44 @@
 /* sidebar/navbar for inbox, sent, trash, spam, etc   */
 
-/* Configuring Container For Navbar/menubar  */
-.menu-bar{
 
+/* Configuring Container For Navbar/menubar  */
+
+.menu-bar {
     /* Grid position */
     grid-column: 1/2;
-
     /* Making the menubar a flex cotainer  */
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
-
     /* Styling the menubar  */
     background: var(--primary-color);
-    
 }
 
+
 /* Properties of the List of links  */
-.menu-bar ul{
+
+.menu-bar ul {
     list-style: none;
-    padding:0;
+    padding: 0;
     color: var(--text-color);
     padding: 5px 0px;
 }
 
+
 /* List Element properties */
-.menu-bar ul li{
+
+.menu-bar ul li {
     padding: 20px;
     width: 100%;
-    transition: background-color 0.1s ease-in-out,border-radius 0.6s 0.2s ease-in;
+    transition: background-color 0.1s ease-in-out, border-radius 0.6s 0.2s ease-in;
     border-radius: 60px;
 }
 
+
 /* Properties of menubar Links */
-.menu-bar>ul li a{
+
+.menu-bar>ul li a {
     text-decoration: none;
     color: var(--text-color);
     display: flex;
@@ -42,28 +46,40 @@
     /* flex-basis: 150kpx; */
 }
 
+
 /* Current Folder(Inbox, sent, spam, etc) */
+
 .active {
     border-radius: 10px;
     background-color: var(--accents-color);
     margin: 15px 0px;
-
 }
+
 
 /* Highlight item with accent color and change border radius on hover */
-.menu-bar>ul li:hover{
+
+.menu-bar>ul li:hover {
     background-color: var(--accents-color);
     border-radius: 12px;
-} 
-
-Icons
-.menu-bar .icons{
-    margin-right: 8px;
 }
-.sub-menu-1{
+
+
+/* Changes for Icons*/
+
+.menu-bar .fas {
+    margin-right: 9px;
+    display: auto;
+}
+
+
+/* set default display mode to none for Hovering submenu*/
+
+.sub-menu-1 {
     display: none;
 }
-.menu-bar ul li:hover .sub-menu-1{
+
+/* For showing the submenu on hovering */
+.menu-bar ul li:hover .sub-menu-1 {
     display: block;
     position: absolute;
     background: var(--secondary-color);
@@ -71,5 +87,5 @@ Icons
     top: 25px;
     border-radius: 10px;
     top: 70px;
-    z-index:100;
+    z-index: 100;
 }
