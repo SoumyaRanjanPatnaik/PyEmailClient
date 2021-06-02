@@ -1,6 +1,7 @@
 /* sidebar/navbar for inbox, sent, trash, spam, etc   */
 nav{
     grid-column: 1/2;
+    margin:0;
 }
 
 .menu-bar{
