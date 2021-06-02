@@ -2,17 +2,24 @@
 nav{
     grid-column: 1/2;
     margin:0;
+    height: 100%;
 }
 
 .menu-bar{
     background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
 }
 .menu-bar ul{
     list-style: none;
+    padding:0;
     color: white;
 }
 .menu-bar ul li{
-    margin: 20px;
+   
     padding: 20px;
     width: 140px;
 }
@@ -23,6 +30,7 @@ nav{
 .active,.menu-bar ul li:hover{
     background-color: #2bab0d;
     border-radius: 20px;
+
 } 
 .menu-bar .fa{
     margin-right: 8px;
