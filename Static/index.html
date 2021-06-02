@@ -1,6 +1,7 @@
 <!-- Home Page -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
     <title>EmailClient</title>
 
     <!-- Linking to CSS -->
-    <link rel="stylesheet" type='text/css'  href="./css/MainScreen/animations.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/animations.css">
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/maillist.css">
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/mediaqueries.css">
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/nav.css">
@@ -19,6 +20,8 @@
     <link rel="stylesheet" type='text/css' href="borders.css">
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/body.css">
     
+    <!-- For Icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -27,7 +30,30 @@
     <header id='topbar' class="border">head</header>
 
     <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
-    <nav id = 'nav' class='border'nav>nav</nav>
+    <div class="menu-bar">
+        <ul>
+            <li class="active">
+                <a href="#"><i class="fas fa-inbox"></i><span>Inbox</span></a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Important</a></li>
+                        <li><a href="#">Deleted</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            </li>
+            <li><a href="#"><i class="fas fa-share-square"></i><span> Sent</span></a></li>
+            <li><a href="#"><i class="fas fa-save"></i><span>Drafts</span></a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Outbox</span></a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i><span>Trash</span></a></li>
+            <li><a href="#"><i class="fas fa-star"></i>Important</a></li>
+            <li><a href="#"><i class="fas fa-mail-bulk"></i><span>All mail</span></a></li>
+            <li><a href="#"><i class="fas fa-virus-slash"></i><span>Spam</span></a></li>
+            <li><a href="#"><i class="fas fa-user-cog"></i><span>Setting</span></a></li>
+        </ul>
+    </div>
 
     <!-- Listing mails with subjects, sender's email id and a preview of mail -->
     <div id='maillist' class='border'>maillist</div>
@@ -35,4 +61,5 @@
     <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
     <div id="readmail" class="border">aside</div>
 </body>
+
 </html>
