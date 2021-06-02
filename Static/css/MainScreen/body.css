@@ -1,0 +1,25 @@
+/* This file is for overall changes to the front end and body  */
+
+/* changes applied to all the elements of the html file  */
+*{
+    box-sizing: border-box;
+}
+
+/* Body of the html file  */
+body{
+    margin: 0;
+    padding:0;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: minmax(140px, 0.7fr) repeat(6,1fr);
+    grid-template-rows: 50px auto;
+}
+
+/* Contains all the variables for colors, etc */
+:root{
+    --primary-color: ;
+    --secondary-color: ;
+    --accents-color: ;
+    --text-color: ;
+}

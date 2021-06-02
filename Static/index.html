@@ -2,17 +2,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>EmailClient</title>
-    <link rel="stylesheet" href="./css/body.css">
+
+    <!-- Linking to CSS -->
+    <link rel="stylesheet" type='text/css'  href="./css/MainScreen/animations.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/maillist.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/mediaqueries.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/nav.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/topbar.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/readmail.css">
+    <link rel="stylesheet" type='text/css' href="borders.css">
+    <link rel="stylesheet" type='text/css' href="./css/MainScreen/body.css">
+    
 </head>
+
 <body>
-    <h1>EmailClient</h1>
-    <header></header>
-    <nav></nav>
-    <div class="container"></div>
-    <footer></footer>
+
+    <!-- Top Bar with search, name, logo, settings, etc  -->
+    <header id='topbar' class="border">head</header>
+
+    <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
+    <nav id = 'nav' class='border'nav>nav</nav>
+
+    <!-- Listing mails with subjects, sender's email id and a preview of mail -->
+    <div id='maillist' class='border'>maillist</div>
+
+    <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
+    <div id="readmail" class="border">aside</div>
 </body>
 </html>
