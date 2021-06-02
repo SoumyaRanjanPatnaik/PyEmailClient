@@ -11,15 +11,22 @@ body{
     padding:0;
     height: 100vh;
     width: 100vw;
+    background-color: var(--primary-color);
+    color:var(--text-color);
     display: grid;
-    grid-template-columns: minmax(140px, 0.7fr) repeat(6,1fr);
+    grid-template-columns:  170px repeat(6,1fr);
     grid-template-rows: 50px auto;
 }
 
+
 /* Contains all the variables for colors, etc */
 :root{
-    --primary-color: ;
-    --secondary-color: ;
-    --accents-color: ;
-    --text-color: ;
+    --primary-color: rgba(2, 2, 2, 0.959);
+    /* --primary-color: rgb(250, 250, 250); */
+    --secondary-color: rgba(2, 150, 2, 0.856);
+    /* --secondary-color: rgba(0, 183, 255, 0.774); */
+    --accents-color: #35ac1b;
+    /* --accents-color: rgb(96, 223, 255); */
+    --text-color: rgb(255, 255, 255);
+    /* --text-color: rgb(32, 32, 32); */
 }
