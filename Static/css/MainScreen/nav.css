@@ -10,9 +10,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    flex-basis: 100%;
     /* Styling the menubar  */
     background: var(--primary-color);
+    font-family: 'Hi Melody';
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 
@@ -42,8 +45,6 @@
     text-decoration: none;
     color: var(--text-color);
     display: flex;
-    transition: margin 1s ease;
-    /* flex-basis: 150kpx; */
 }
 
 

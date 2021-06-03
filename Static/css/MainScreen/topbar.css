@@ -41,12 +41,14 @@
     border-radius: 10px;
     padding:10px 15px;
     background-color: var(--ternary-color);
-    color: white;
+    color: var(--text-color);
+    font-weight: bold;
     border: none;
 }
 
-input:focus{
+*:focus{
     outline: none;
+    outline-style: none;
 }
 
 #search-now{
