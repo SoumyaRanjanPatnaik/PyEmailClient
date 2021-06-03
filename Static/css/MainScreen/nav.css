@@ -10,9 +10,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    flex-basis: 100%;
     /* Styling the menubar  */
     background: var(--primary-color);
+    font-family: 'Hi Melody';
+    font-size: 1.25rem;
+    font-weight: 400;
+    user-select: none;
+    user-zoom: none;
 }
 
 
@@ -42,8 +47,6 @@
     text-decoration: none;
     color: var(--text-color);
     display: flex;
-    transition: margin 1s ease;
-    /* flex-basis: 150kpx; */
 }
 
 
@@ -75,17 +78,23 @@
 /* set default display mode to none for Hovering submenu*/
 
 .sub-menu-1 {
-    display: none;
+    display: block;
+    position: absolute;
+    left:143px;
+    height: 0px;
+    width: 0px;
+    overflow: auto;
+    transition: left 0.3s ease-in-out;  
 }
 
 /* For showing the submenu on hovering */
 .menu-bar ul li:hover .sub-menu-1 {
     display: block;
-    position: absolute;
+    height: auto;
+    width: 170px;
+    top: 86px;
+    left: 153px;
     background: var(--secondary-color);
-    left: 158px;
-    top: 25px;
     border-radius: 10px;
-    top: 70px;
     z-index: 100;
 }

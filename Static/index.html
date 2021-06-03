@@ -19,22 +19,38 @@
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/readmail.css">
     <link rel="stylesheet" type='text/css' href="borders.css">
     <link rel="stylesheet" type='text/css' href="./css/MainScreen/body.css">
-    
+
     <!-- For Icons  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- For Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Itim&family=Mali:ital,wght@1,300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Top Bar with search, name, logo, settings, etc  -->
-    <header id='topbar' class="border">head</header>
+    <header id='topbar' >
+        <div id="mail-logo">
+            <span class="material-icons"> email </span>
+            <strong class="bold-text" style="padding: 0px 2px;">PyMail</strong>
+        </div>
+        <div id="search-bar">
+            <input type="text" name="Search" id="search-field" class='search' placeholder="Search Mail">
+            <button id='search-now' class='search'><span class="material-icons">search</span></button>
+        </div>
+        <span id='settings' class="material-icons icons">settings</span>
+    </header>
 
     <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
     <div class="menu-bar">
         <ul>
             <li class="active">
                 <a href="#"><i class="fas fa-inbox"></i><span>Inbox</span></a>
-                <div class="sub-menu-1">
+                <!-- Drpopdown menu  -->
+                <div class="sub-menu-1"> 
                     <ul>
                         <li><a href="#">All</a></li>
                         <li><a href="#">Important</a></li>
