@@ -1,0 +1,92 @@
+#compose-icon{
+    position:fixed;
+    bottom: 15px;
+    right: 10px;
+    font-size: 7.3vh;
+    color:var(--accents-color);
+    background-color: white;
+    border-radius: 50%;
+    animation: LogoFloat 1.5s 0.2s ease-in-out forwards;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000000;
+    transition: transfrom 0.5s ease-in-out;
+}
+
+#compose-icon:active{
+    font-size: 7.0vh;
+    right: 12px;
+}
+
+#compose-window{
+    display: none;
+    flex-direction: column;
+
+    /* transform: scale(0,0); */
+    justify-content: space-between;
+    align-items: stretch;
+    height: 87vh;
+    width: 98.4vw;
+
+    position: absolute;
+    top: 1.8vh;
+    left: 0.65vw;
+
+    background-color: var(--text-color);
+    opacity: 0.95;
+    color: var(--text-color-secondary);
+    border-radius: 8px;
+    padding: 0.5rem;
+
+    z-index: 100000;
+}
+
+#compose-form{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    background: var(--primary-color);
+    border-radius: 8px;
+    opacity: 0.95;
+    padding: 1rem;
+    background-color: var(--form-bg-color);
+}
+
+.mail-input{
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    color:var(--text-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+#mail-content{
+    height: 80%;
+    resize: none;
+}
+
+#send-mail{
+    display: grid;
+    place-items: center;    
+    
+    position:fixed;
+    bottom: 15px;
+    right: 90px;
+    font-size: 7.3vh;
+
+    transform: scale(0,0);
+
+    color:var(--accents-color);
+    background-color: white;
+
+    border:2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    height: 7.3vh;
+    width: 7.3vh;
+
+}
