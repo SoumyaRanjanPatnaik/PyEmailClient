@@ -1,4 +1,6 @@
 /* Top Bar with search, name, logo, settings, etc */
+
+/* Properties of topbar container  */
 #topbar{
     grid-column: 1/8;
     display: flex;
@@ -7,20 +9,11 @@
     background-color: var(--primary-color);
     color: var(--text-color-secondary);
     padding: 5px 10px;
+    user-select: none;
+    user-zoom: none;
 }
 
-
-#settings{
-    display: inline-block;
-    border-radius: 50%;
-    padding:6px;
-}
-
-#settings:hover{
-    background-color: var(--ternary-color);
-    color: var(--text-color);
-    cursor: pointer;
-}
+/* Logo and Name of app(Pymail) */
 #mail-logo{
     display: flex;
     flex-basis: 60px;
@@ -28,6 +21,13 @@
     justify-content: space-between;
 }
 
+/* Disable Outline for all feilds */
+*:focus{
+    outline: none;
+}
+
+
+/* Search bar container */
 #search-bar{
     display: flex;
     align-items: stretch;
@@ -36,6 +36,7 @@
     color:var(--text-color);
 }
 
+/* Input field for search bar  */
 #search-field{
     width: 40vw;
     border-radius: 10px;
@@ -46,11 +47,7 @@
     border: none;
 }
 
-*:focus{
-    outline: none;
-    outline-style: none;
-}
-
+/* Search button  */
 #search-now{
     display: flex;
     align-items: center;
@@ -63,7 +60,27 @@
     cursor: pointer;
 }
 
+/* On clicking(active) search button */
 #search-now:active{
     filter: invert(0.8);
-    background-color: invert();
+}
+
+
+/* Settings icon */
+#settings{
+    display: inline-block;
+    border-radius: 50%;
+    padding:6px;
+}
+
+/* Properties to be applied to settings icon
+on hovering on it  */
+#settings:hover{
+    background-color: var(--ternary-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#settings:active{
+    filter: invert(0.8);
 }
