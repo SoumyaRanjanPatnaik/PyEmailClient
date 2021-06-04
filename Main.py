@@ -39,7 +39,7 @@ def authenticate():
     return service
 
 @eel.expose
-def send_mail(emailMsg, mail_to,  mail_subject):
+def send_mail(mail_to,  mail_subject, emailMsg):
     mimeMessage = MIMEMultipart()
     mimeMessage['to'] = mail_to
     mimeMessage['subject'] = mail_subject
