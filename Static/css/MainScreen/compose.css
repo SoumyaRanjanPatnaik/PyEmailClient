@@ -21,6 +21,7 @@
 #compose-window{
     display: none;
     flex-direction: column;
+    border: none;
 
     /* transform: scale(0,0); */
     justify-content: space-between;
@@ -32,11 +33,8 @@
     top: 1.8vh;
     left: 0.65vw;
 
-    background-color: var(--text-color);
     opacity: 0.95;
     color: var(--text-color-secondary);
-    border-radius: 8px;
-    padding: 0.5rem;
 
     z-index: 100000;
 }
@@ -52,9 +50,12 @@
     border-radius: 8px;
     opacity: 0.95;
     padding: 1rem;
-    background-color: var(--form-bg-color);
+    border: 1px solid var(--text-color);
+    background-color: var(--primary-color);
 }
-
+#subject{
+    font-weight: 800;
+}
 .mail-input{
     width: 100%;
     border: none;
@@ -66,6 +67,13 @@
 #mail-content{
     height: 80%;
     resize: none;
+    
+}
+
+.line{
+    background-color: var(--ternary-color);
+    height: 1px;
+    width: 98%;
 }
 
 #send-mail{
@@ -75,18 +83,18 @@
     position:fixed;
     bottom: 15px;
     right: 90px;
-    font-size: 7.3vh;
+    font-size: 6.9vh;
 
     transform: scale(0,0);
 
     color:var(--accents-color);
     background-color: white;
 
-    border:2px solid black;
+    border:2px solid var(--ternary-color);
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
-    height: 7.3vh;
-    width: 7.3vh;
+    height: 6.92vh;
+    width: 6.92vh;
 
 }
