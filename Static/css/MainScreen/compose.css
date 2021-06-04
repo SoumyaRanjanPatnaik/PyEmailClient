@@ -1,7 +1,7 @@
 #compose-icon{
     position:fixed;
     bottom: 15px;
-    right: 10px;
+    right: 3vw;
     font-size: 7.3vh;
     color:var(--accents-color);
     background-color: white;
@@ -15,7 +15,7 @@
 
 #compose-icon:active{
     font-size: 7.0vh;
-    right: 12px;
+    right: 3.15vw;
 }
 
 #compose-window{
@@ -26,12 +26,12 @@
     /* transform: scale(0,0); */
     justify-content: space-between;
     align-items: stretch;
-    height: 87vh;
-    width: 98.4vw;
+    height: 75vh;
+    width: 94vw;
 
     position: absolute;
-    top: 1.8vh;
-    left: 0.65vw;
+    top: 8vh;
+    left: 3vw;
 
     opacity: 0.95;
     color: var(--text-color-secondary);
@@ -50,7 +50,7 @@
     border-radius: 8px;
     opacity: 0.95;
     padding: 1rem;
-    border: 1px solid var(--text-color);
+    border: 3px solid var(--text-color);
     background-color: var(--primary-color);
 }
 #subject{
@@ -67,7 +67,7 @@
 #mail-content{
     height: 80%;
     resize: none;
-    
+    padding: 40px auto;
 }
 
 .line{
@@ -82,7 +82,7 @@
     
     position:fixed;
     bottom: 15px;
-    right: 90px;
+    right: 7.3vw;
     font-size: 6.9vh;
 
     transform: scale(0,0);
@@ -97,4 +97,8 @@
     height: 6.92vh;
     width: 6.92vh;
 
+}
+
+#send-mail:active{
+    filter: invert(0.05);
 }
