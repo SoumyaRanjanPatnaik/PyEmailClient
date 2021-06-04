@@ -11,8 +11,6 @@
 
 /* Body of the html file  */
 body{
-    margin: 0;
-    padding:0;
     border: 0;
     height: 100vh;
     width: 100vw;
@@ -21,23 +19,35 @@ body{
     display: grid;
     grid-template-columns:  170px repeat(6,1fr);
     grid-template-rows: 50px auto;
+    font-size: 15px;
 }
 
+.wrapper{
+    position: fixed;
+    display: none;
+    background: var(--form-bg-color);
+    height: 100%;
+    width: 100%;
+    z-index: 100000;
+}
 
 /* Contains all the variables for colors, etc */
 :root{
-    --primary-color: rgba(5, 5, 5, 0.925);
-    /* --primary-color: rgb(250, 250, 250); */
+    --primary-color: rgba(0, 0, 0, 0.96);
+    --primary-color: rgb(250, 250, 250);
     --secondary-color: rgba(2, 150, 2, 0.986);
-    /* --secondary-color: rgba(58, 173, 255, 0.774); */
-    --ternary-color:rgb(76, 76, 76);
-    /* --ternary-color:rgb(230, 230, 230); */
+    --secondary-color: rgba(58, 173, 255, 0.774);
+    --ternary-color:rgb(119, 119, 119);
+    --ternary-color:rgb(211, 211, 211);
     --accents-color: #35ac1b;
-    /* --accents-color: rgb(139, 216, 255); */
+    --accents-color: rgb(139, 216, 255);
     --text-color: rgb(255, 255, 255);
-    /* --text-color: rgb(32, 32, 32); */
+    --text-color: rgb(32, 32, 32);
     --text-color-secondary: rgb(189, 186, 186);
-    /* --text-color-secondary: rgb(71, 71, 71); */
+    --text-color-secondary: rgb(71, 71, 71);
+
+    --form-bg-color: rgba(26, 26, 26, 0.418);
+    --form-bg-color: rgba(37, 37, 37, 0.178);
 
     --font-size-xx-large: ;
     --font-size-x-large: ;
