@@ -16,6 +16,7 @@ SCOPES = ['https://mail.google.com/']
 eel.init('Static')
 
 def token_exists():
+    print("In token")
     if path.exists('./token_gmail_v1.pickle'):
         return True
     elif path.exists('.\\token_gmail_v1.pickle'):
@@ -23,7 +24,9 @@ def token_exists():
     else:
         return False
 
+
 def start_client(page_to_load, PORT=8563):
+    print("in start client")
     try:
         eel.start(page_to_load, port=PORT)
     except:
@@ -35,11 +38,14 @@ def start_client(page_to_load, PORT=8563):
 
     
 def authenticate():
+    print("in authenticate")
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
     return service
 
 @eel.expose
 def send_mail(mail_to,  mail_subject, emailMsg):
+    service = authenticate()
+    print("in send mail")
     mimeMessage = MIMEMultipart()
     mimeMessage['to'] = mail_to
     mimeMessage['subject'] = mail_subject
@@ -50,9 +56,9 @@ def send_mail(mail_to,  mail_subject, emailMsg):
 
 
 if __name__ == '__main__':
+    print(" in main")
     if token_exists():
         start_client('index.html')
     else:
         start_client('LoginSplash.html')
-    service = authenticate()
-    
+        authenticate()

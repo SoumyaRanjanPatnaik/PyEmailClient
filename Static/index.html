@@ -82,11 +82,10 @@
 
     <span id='compose-icon' class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
     <div class="wrapper">
-
         
         <div id="compose-window" class="border">
-            <form action="#" id="compose-form">
-                <input id='email' class="mail-input" type="email" placeholder="Email ID">
+            <form id="compose-form">
+                <input id='email' class="mail-input" type="email" placeholder="Email ID" name="email">
                 <div class="line"></div>
                 <input id='subject' class="mail-input" type="email" placeholder="Subject">
                 <div class="line"></div>
@@ -96,7 +95,7 @@
         </div>
         
     </div>
-    <button id='send-mail'><span class="material-icons" onclick="sendmail()">send</span></button>
+    <button id='send-mail'><span class="material-icons" onclick="javascript:sendmail()">send</span></button>
 
     <!-- import javascript -->
     <script src="./js/compose-button.js"></script>
