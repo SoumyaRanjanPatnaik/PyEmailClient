@@ -1,7 +1,7 @@
 #compose-icon{
     position:fixed;
     bottom: 15px;
-    right: 35px;
+    right: 15px;
     font-size: 3.7rem;
     color:var(--accents-color);
     background-color: white;
@@ -15,7 +15,7 @@
 
 #compose-icon:active{
     font-size: 7.0vh;
-    right: 3.15vw;
+    right: 20px;
 }
 
 #compose-window{
@@ -80,7 +80,7 @@
     
     position:fixed;
     bottom: 15px;
-    right: 110px;
+    right: 90px;
     font-size: 3.7rem;
     /* transition: transform 0.2s ease-in-out; */
 
