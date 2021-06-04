@@ -44,7 +44,7 @@
         </div>
         <span id='settings' class="material-icons icons">settings</span>
     </header>
-    
+
     <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
     <div class="menu-bar">
         <ul>
@@ -59,40 +59,42 @@
                     </ul>
                 </div>
             </li>
-            
-        </li>
-        <li><a href="#"><i class="fas fa-share-square"></i><span> Sent</span></a></li>
-        <li><a href="#"><i class="fas fa-save"></i><span>Drafts</span></a></li>
-        <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Outbox</span></a></li>
-        <li><a href="#"><i class="fas fa-trash-alt"></i><span>Trash</span></a></li>
-        <li><a href="#"><i class="fas fa-star"></i>Important</a></li>
-        <li><a href="#"><i class="fas fa-mail-bulk"></i><span>All mail</span></a></li>
-        <li><a href="#"><i class="fas fa-virus-slash"></i><span>Spam</span></a></li>
-        <li><a href="#"><i class="fas fa-user-cog"></i><span>Setting</span></a></li>
-    </ul>
-</div>
 
-<!-- Listing mails with subjects, sender's email id and a preview of mail -->
-<div id='maillist' class=''>maillist</div>
+            </li>
+            <li><a href="#"><i class="fas fa-share-square"></i><span> Sent</span></a></li>
+            <li><a href="#"><i class="fas fa-save"></i><span>Drafts</span></a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Outbox</span></a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i><span>Trash</span></a></li>
+            <li><a href="#"><i class="fas fa-star"></i>Important</a></li>
+            <li><a href="#"><i class="fas fa-mail-bulk"></i><span>All mail</span></a></li>
+            <li><a href="#"><i class="fas fa-virus-slash"></i><span>Spam</span></a></li>
+            <li><a href="#"><i class="fas fa-user-cog"></i><span>Setting</span></a></li>
+        </ul>
+    </div>
 
-<!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
-<div id="readmail" class="">aside</div>
+    <!-- Listing mails with subjects, sender's email id and a preview of mail -->
+    <div id='maillist' class=''>maillist</div>
 
-<span id='compose-icon' class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
-<div class="wrapper">
+    <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
+    <div id="readmail" class="">aside</div>
 
+    <span id='compose-icon' class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
+    <div class="wrapper">
+
+        
         <div id="compose-window" class="border">
             <form action="#" id="compose-form">
                 <input id='email' class="mail-input" type="email" placeholder="Email ID">
                 <div class="line"></div>
                 <input id='subject' class="mail-input" type="email" placeholder="Subject">
                 <div class="line"></div>
-                <textarea name="mail-content" class='mail-input' id="mail-content" placeholder="Write your mail here..."></textarea>
+                <textarea name="mail-content" class='mail-input' id="mail-content"
+                placeholder="Write your mail here..."></textarea>
             </form>
         </div>
-
-        <button id='send-mail'><span class="material-icons">send</span></button>
+        
     </div>
+    <button id='send-mail'><span class="material-icons">send</span></button>
 
     <script src="./js/compose-button.js"></script>
 </body>

@@ -2,7 +2,7 @@
     position:fixed;
     bottom: 15px;
     right: 3vw;
-    font-size: 7.3vh;
+    font-size: 3.7rem;
     color:var(--accents-color);
     background-color: white;
     border-radius: 50%;
@@ -23,7 +23,6 @@
     flex-direction: column;
     border: none;
 
-    /* transform: scale(0,0); */
     justify-content: space-between;
     align-items: stretch;
     height: 75vh;
@@ -83,9 +82,10 @@
     position:fixed;
     bottom: 15px;
     right: 7.3vw;
-    font-size: 6.9vh;
+    font-size: 3.7rem;
+    /* transition: transform 0.2s ease-in-out; */
 
-    transform: scale(0,0);
+    transform: scale(0,0); 
 
     color:var(--accents-color);
     background-color: white;
@@ -96,6 +96,7 @@
     user-select: none;
     height: 6.92vh;
     width: 6.92vh;
+    z-index: 10000000;
 
 }
 

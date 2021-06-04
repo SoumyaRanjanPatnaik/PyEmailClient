@@ -13,6 +13,7 @@ function  toggle_compose(){
         compose.style.transform='rotate(135deg)';
         send.style.transform='scale(1,1)';
         dialog.style.display='flex';
+        dialog.style.zIndex='100000'
         nav.style.overflow='hidden';
         curr++;
         wrapper.style.display='block'
