@@ -14,3 +14,7 @@ document.form1.text1.focus();
 return false;
 }
 }
+function login(){
+    eel.authenticate()
+    window.open('./index.html','_self')
+}
