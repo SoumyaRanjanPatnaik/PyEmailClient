@@ -36,7 +36,7 @@ def start_client(page_to_load, PORT=8563):
         except:
             eel.start(page_to_load,port=PORT, mode='edge')
 
-    
+@eel.expose   
 def authenticate():
     print("in authenticate")
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
