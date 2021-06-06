@@ -8,6 +8,7 @@ from google.auth.transport.requests import Request
 
 def Create_Service(client_secret_file, api_name, api_version, *scopes):
     print(client_secret_file, api_name, api_version, scopes, )
+    file = os.path.dirname(__file__)
     CLIENT_SECRET_FILE = client_secret_file
     API_SERVICE_NAME = api_name
     API_VERSION = api_version
@@ -19,8 +20,8 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
     pickle_file = "token_"+API_SERVICE_NAME+"_"+API_VERSION+".pickle"
     # print(pickle_file)
     
-    if os.path.exists(pickle_file):
-        with open(pickle_file, 'rb') as token:
+    if os.path.exists(os.path.join(file,pickle_file)):
+        with open(os.path.join(file,pickle_file), 'rb') as token:
             cred = pickle.load(token)
 
     if not cred or not cred.valid:
