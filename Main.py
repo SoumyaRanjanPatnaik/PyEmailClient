@@ -61,4 +61,3 @@ if __name__ == '__main__':
         start_client('index.html', port)
     else:
         start_client('LoginSplash.html', port)
-        authenticate()

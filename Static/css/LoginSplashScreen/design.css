@@ -1,6 +1,14 @@
 
-body {font-family: sans-serif;
-    background-color: lightyellow;
+body {
+    font-family: sans-serif;
+    background-color: var(--primary-color);
+    height: 100vh;
+    width: 100vw;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     }
     
     /* Full-width input fields */
@@ -14,16 +22,19 @@ body {font-family: sans-serif;
     }
     /* button styling */
     button {
-        background-color: orange;
-        color: white;
+        background-color: var(--accents-color);
+        color: var(--text-color);
         padding: 14px 20px;
         margin: 16px 0;
         border: none;
+        border-radius: 8px;
         cursor: pointer;
         width: 100%;
+        font-size: 1rem;
+        font-weight: 900;
       }
       button:hover {
-        opacity: 0.8;
+        transform: scale(1.2,1.2);
       }
       /* style for cancel button*/
     .cancelbtn {
