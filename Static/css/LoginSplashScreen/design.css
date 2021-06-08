@@ -1,83 +1,113 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: var(--primary-color);
+  height: 100vh;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-body {font-family: sans-serif;
-    background-color: lightyellow;
-    }
-    
-    /* Full-width input fields */
-    input[type=email], input[type=password] {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    /* button styling */
-    button {
-        background-color: orange;
-        color: white;
-        padding: 14px 20px;
-        margin: 16px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-      }
-      button:hover {
-        opacity: 0.8;
-      }
-      /* style for cancel button*/
-    .cancelbtn {
-        width: auto;
-        padding: 11px 20px;
-        background-color:blue;
-      }
-    
-      /* position of logo */
-    .img {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-        border-radius: 50%;
-      }
-      img.sign {
-        width: 20%;
-        border-radius: 50%;
-      }
-      
-      .container {
-        padding: 16px;
-      }
-      
-      span.password {
-        float: right;
-        padding-top: 16px;
-      }
-      /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        /*  */
-        
-        overflow: auto; /* Enable scroll if needed */
-        
-        
-      }
-      /* Modal Content/Box */
-    .modal-1 {
-        background-color:lightblue;
-        margin: 15% auto 15% auto; 
-        border: 5px solid black;
-        width: 80%; 
-      }
-      
-    /* The Close Button (x) */
-    .close {
-        position: absolute;
-        right: 25px;
-        top: 0;
-        
-        font-size: 35px;
-        font-weight: bold;
-      }
-      
+h1{
+  font-size: 4rem;
+  height: 100px;
+  padding: auto;
+}
+body::before{
+  content: "";
+  background: url("https://source.unsplash.com/1600x900/?minimalist") no-repeat center;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+button {
+  background-color: var(--accents-color);
+  color: var(--text-color);
+  padding: 14px 20px;
+  margin: 16px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+/* Full-width input fields */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* button styling */
+button:hover {
+  transform: scale(1.2, 1.2);
+}
+/* style for cancel button*/
+.cancelbtn {
+  width: auto;
+  padding: 11px 20px;
+  background-color: blue;
+}
+
+/* position of logo */
+.img {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+  border-radius: 50%;
+}
+img.sign {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.password {
+  float: right;
+  padding-top: 16px;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /*  */
+
+  overflow: auto; /* Enable scroll if needed */
+}
+/* Modal Content/Box */
+.modal-1 {
+  background-color: lightblue;
+  margin: 15% auto 15% auto;
+  border: 5px solid black;
+  width: 80%;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+
+  font-size: 35px;
+  font-weight: bold;
+}
