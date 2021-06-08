@@ -42,6 +42,14 @@ def authenticate():
     return service
 
 @eel.expose
+def start_without_chrome():
+    port = random.randint(5000,8000)
+    if token_exists():
+        eel.main_page()
+    else:
+        eel.login_page()
+
+@eel.expose
 def send_mail(mail_to,  mail_subject, emailMsg):
     service = authenticate()
     print("in send mail")
@@ -61,4 +69,3 @@ if __name__ == '__main__':
         start_client('index.html', port)
     else:
         start_client('LoginSplash.html', port)
-        authenticate()

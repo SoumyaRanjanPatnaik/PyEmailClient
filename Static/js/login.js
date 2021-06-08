@@ -1,20 +1,20 @@
-function ValidateEmail(inputText)
-{
-var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-if(inputText.value.match(mailformat))
-{
-alert("Valid email address!");
-document.form1.text1.focus();
-return true;
+function ValidateEmail(inputText) {
+  var mailformat =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (inputText.value.match(mailformat)) {
+    alert("Valid email address!");
+    document.form1.text1.focus();
+    return true;
+  } else {
+    alert("You have entered an invalid email address!");
+    document.form1.text1.focus();
+    return false;
+  }
 }
-else
-{
-alert("You have entered an invalid email address!");
-document.form1.text1.focus();
-return false;
-}
-}
-function login(){
-    eel.authenticate()
-    window.open('./index.html','_self')
+
+function login() {
+  eel.authenticate();
+  let auth_begin = document.getElementById("auth-begin");
+
+  window.open("./index.html", "_self");
 }
