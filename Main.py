@@ -25,7 +25,7 @@ def token_exists():
         return False
 
 
-def start_client(page_to_load, PORT=8563):
+def start_client(page_to_load, PORT=8569):
     print("in start client")
     try:
         eel.start(page_to_load, port=PORT)
