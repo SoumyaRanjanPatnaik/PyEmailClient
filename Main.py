@@ -61,6 +61,13 @@ def send_mail(mail_to,  mail_subject, emailMsg):
     raw_string = base64.urlsafe_b64encode(mimeMessage.as_bytes()).decode()
     message = service.users().messages().send(userId='me', body={'raw': raw_string}).execute()
     print(message)
+    
+@eel.expose
+def mail_labels():
+    service = authenticate()
+    results = service.users().labels().list( userId = 'me' ).execute()
+    labels = results.get('labels' , [])
+    return labels
 
 
 if __name__ == '__main__':
