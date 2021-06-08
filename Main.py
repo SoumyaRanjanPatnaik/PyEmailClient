@@ -24,6 +24,7 @@ def token_exists():
     else:
         return False
 
+
 def start_client(page_to_load, PORT=8563):
     print("in start client")
     try:
