@@ -12,7 +12,13 @@ import random
 eel.init('Static')
 
 class mail:
+    """
+    Class containing necessary functions for interacting with google API.
+    """
     def __init__(self):
+        """
+        Initialise the constants and gmail api service.
+        """
         file = path.dirname(__file__)
         self.CLIENT_SECRET_FILE = path.join(file,'client_secret.json')
         self.API_NAME = 'gmail'
@@ -21,11 +27,22 @@ class mail:
         self.service=None
 
     def auth(self):
+        """
+        Authinticate the user using OAuth2.0.
+        """
         print("in authenticate")
         self.service = Create_Service(self.CLIENT_SECRET_FILE, self.API_NAME, self.API_VERSION, self.SCOPES)
 
 
     def send(self, mail_to,  mail_subject, emailMsg):
+        """
+        Send Email using GMail API. 
+
+        USAGE:
+            mail_to     :   Reciever's email address.
+            mail_subject:   Subject of the email.
+            emailMsg    :   Message in the email.(Plain Text)
+        """
         print("in send mail")
         mimeMessage = MIMEMultipart()
         mimeMessage['to'] = mail_to

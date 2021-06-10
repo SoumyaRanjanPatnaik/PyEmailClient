@@ -8,6 +8,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import base64
+from Google import Create_Service
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
@@ -71,13 +72,17 @@ def get_message(service, user_id, msg_id):
     """
     try:
         # grab the message instance
-        message = service.users().messages().get(userId=user_id, id=msg_id,format='raw').execute()
+        message = service.users().messages().get(userId=user_id, id=msg_id,format='full').execute()
 
         # decode the raw string, ASCII works pretty well here
-        msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
+        msg_str = base64.urlsafe_b64decode(message['full'].encode('ASCII'))
+
+        msg_headers = message["payload"]["headers"]
+        print(msg_headers)
 
         # grab the string from the byte object
         mime_msg = email.message_from_bytes(msg_str)
+
 
         # check if the content is multipart (it usually is)
         content_type = mime_msg.get_content_maintype()
@@ -99,41 +104,16 @@ def get_message(service, user_id, msg_id):
     # unsure why the usual exception doesn't work in this case, but 
     # having a standard Exception seems to do the trick
     except Exception:
-        print("An error occured: %s") % error
+        pass
 
 
-def get_service():
-    """
-    Authenticate the google api client and return the service object 
-    to make further calls
-    PARAMS
-        None
-    RETURNS
-        service api object from gmail for making calls
-    """
-    creds = None
-
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
-
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-
-        # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(creds, token)
-
-
-    service = build('gmail', 'v1', credentials=creds)
-
-    return service
-
+if __name__ == "__main__":
+    file = os.path.dirname(__file__)
+    CLIENT_SECRET_FILE = os.path.join(file,'client_secret.json')
+    API_NAME = 'gmail'
+    API_VERSION = 'v1'
+    SCOPES = ['https://mail.google.com/']
+    service=None
+    service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
+    ids = search_message(service,'me',"Hello")
+    get_message(service,'me','179ed3536e5d71b8')
