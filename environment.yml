@@ -1,0 +1,25 @@
+# -----------------------------------------------------------------------------------------------------------------
+# File for setting up conda envirnoment required to build PyMail (PyEmailClient).
+#
+# Instructions: 
+# 1. Download and install anaconda from the official website.
+#    For more information, visit the link https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+# 
+# 2. Setup the environment using the command:
+#       conda env create -f environment.yml
+# -----------------------------------------------------------------------------------------------------------------
+
+name: EmailClient
+channels:
+  - defaults
+dependencies:
+  - python = 3
+  - pip
+  - pip:
+    - eel
+    - pyinstaller
+    - google-api-python-client
+    - google-auth-httplib2
+    - google-auth-oauthlib
+  - autopep8
+prefix: /home/alpha/anaconda3/envs/EmailClient
