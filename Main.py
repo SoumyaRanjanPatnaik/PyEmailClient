@@ -11,28 +11,30 @@ import random
 
 eel.init('Static')
 
+
 class mail:
     """
     Class containing necessary functions for interacting with google API.
     """
+
     def __init__(self):
         """
         Initialise the constants and gmail api service.
         """
         file = path.dirname(__file__)
-        self.CLIENT_SECRET_FILE = path.join(file,'client_secret.json')
+        self.CLIENT_SECRET_FILE = path.join(file, 'client_secret.json')
         self.API_NAME = 'gmail'
         self.API_VERSION = 'v1'
         self.SCOPES = ['https://mail.google.com/']
-        self.service=None
+        self.service = None
 
     def auth(self):
         """
         Authinticate the user using OAuth2.0.
         """
         print("in authenticate")
-        self.service = Create_Service(self.CLIENT_SECRET_FILE, self.API_NAME, self.API_VERSION, self.SCOPES)
-
+        self.service = Create_Service(
+            self.CLIENT_SECRET_FILE, self.API_NAME, self.API_VERSION, self.SCOPES)
 
     def send(self, mail_to,  mail_subject, emailMsg):
         """
@@ -49,32 +51,34 @@ class mail:
         mimeMessage['subject'] = mail_subject
         mimeMessage.attach(MIMEText(emailMsg, 'plain'))
         raw_string = base64.urlsafe_b64encode(mimeMessage.as_bytes()).decode()
-        message = self.service.users().messages().send(userId='me', body={'raw': raw_string}).execute()
-       	print(message)
+        message = self.service.users().messages().send(
+            userId='me', body={'raw': raw_string}).execute()
+        print(message)
 
-   	def get_labels():
-       	service = authenticate()
-       	results = service.users().labels().list( userId = 'me' ).execute()
-        labels_details = results.get('labels' , [])
+    def get_labels(self):
         print('in labels')
+        service = authenticate()
+        results = self.service.users().labels().list(userId='me').execute()
+        labels_details = results.get('labels', [])
         labels = []
         others = []
         for i in labels_details:
             if 'CATEGORY' in i['name']:
-                others.append(i['name'].replace("CATEGORY_",""))
+                others.append(i['name'].replace("CATEGORY_", ""))
             else:
                 labels.append(i['name'])
-        -return {'imp':labels , 'other': others}
-    
+        return {'imp': labels, 'other': others}
 
-#Constants
+
+# Constants
 file = path.dirname(__file__)
-CLIENT_SECRET_FILE = path.join(file,'client_secret.json')
+CLIENT_SECRET_FILE = path.join(file, 'client_secret.json')
 API_NAME = 'gmail'
 API_VERSION = 'v1'
 SCOPES = ['https://mail.google.com/']
 
-MAIL_SERVICE=mail() 
+MAIL_SERVICE = mail()
+
 
 def start_client(page_to_load, PORT=8563):
     print("in start client")
@@ -83,23 +87,26 @@ def start_client(page_to_load, PORT=8563):
     except:
         page_to_load = 'get_chrome.html'
         try:
-            eel.start(page_to_load,port=PORT, mode='chrome-app')
+            eel.start(page_to_load, port=PORT, mode='chrome-app')
         except:
-            eel.start(page_to_load,port=PORT, mode='edge')
+            eel.start(page_to_load, port=PORT, mode='edge')
+
 
 @eel.expose
 def token_exists():
     print("In token")
-    if path.exists(path.join(file,'token_gmail_v1.pickle')):
+    if path.exists(path.join(file, 'token_gmail_v1.pickle')):
         print("Return true")
         return 'True'
     else:
         return 'False'
 
+
 @eel.expose
 def start_without_chrome():
-    port = random.randint(5000,8000)
+    port = random.randint(5000, 8000)
     eel.login_page()
+
 
 @eel.expose
 def authenticate():
@@ -109,17 +116,17 @@ def authenticate():
 
 @eel.expose
 def mail_labels():
-  global MAIL_SERVICE
+    global MAIL_SERVICE
     return MAIL_SERVICE.get_labels()
 
 
 @eel.expose
 def send_mail(mail_to, mail_subject, emailMsg):
     global MAIL_SERVICE
-    MAIL_SERVICE.send(mail_to,mail_subject, emailMsg)
+    MAIL_SERVICE.send(mail_to, mail_subject, emailMsg)
+
 
 if __name__ == '__main__':
     print(" in main")
-    port = random.randint(5000,8000)
+    port = random.randint(5000, 8000)
     start_client('LoginSplash.html', port)
-
