@@ -18,3 +18,17 @@ function login() {
 
   window.open("./index.html", "_self");
 }
+
+function check(token){
+  
+  if (token == 'True'){
+    let button = document.getElementById("button")
+    let heading = document.getElementById("heading")
+    heading.innerHTML = "You've Logged In Before"
+    button.innerHTML="Continue to PyMail"
+  }
+}
+
+eel.token_exists()(check);
+
+
