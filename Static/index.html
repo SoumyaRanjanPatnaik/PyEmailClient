@@ -30,10 +30,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Itim&family=Mali:ital,wght@1,300&display=swap"
         rel="stylesheet">
 
+
+
+    <script src="./js/labels.js"></script>
     <script src="./eel.js"></script>
 </head>
 
-<body id='body'>
+<body id='body' onload="getlabels()">
     <!-- Top Bar with search, name, logo, settings, etc  -->
     <header id='topbar'>
         <div id="mail-logo">
@@ -49,28 +52,8 @@
 
     <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
     <div class="menu-bar">
-        <ul>
-            <li class="active">
-                <a href="#"><i class="fas fa-inbox"></i><span>Inbox</span></a>
-                <!-- Drpopdown menu  -->
-                <div class="sub-menu-1">
-                    <ul>
-                        <li><a href="#">All</a></li>
-                        <li><a href="#">Important</a></li>
-                        <li><a href="#">Deleted</a></li>
-                    </ul>
-                </div>
-            </li>
+        <ul id="label">
 
-            </li>
-            <li><a href="#"><i class="fas fa-share-square"></i><span> Sent</span></a></li>
-            <li><a href="#"><i class="fas fa-save"></i><span>Drafts</span></a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Outbox</span></a></li>
-            <li><a href="#"><i class="fas fa-trash-alt"></i><span>Trash</span></a></li>
-            <li><a href="#"><i class="fas fa-star"></i>Important</a></li>
-            <li><a href="#"><i class="fas fa-mail-bulk"></i><span>All mail</span></a></li>
-            <li><a href="#"><i class="fas fa-virus-slash"></i><span>Spam</span></a></li>
-            <li><a href="#"><i class="fas fa-user-cog"></i><span>Setting</span></a></li>
         </ul>
     </div>
 
@@ -82,7 +65,7 @@
 
     <span id='compose-icon' class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
     <div class="wrapper">
-        
+
         <div id="compose-window" class="border">
             <form id="compose-form">
                 <input id='email' class="mail-input" type="email" placeholder="Email ID" name="email">
@@ -90,17 +73,17 @@
                 <input id='subject' class="mail-input" type="email" placeholder="Subject">
                 <div class="line"></div>
                 <textarea name="mail-content" class='mail-input' id="mail-content"
-                placeholder="Write your mail here..."></textarea>
+                    placeholder="Write your mail here..."></textarea>
             </form>
         </div>
-        
+
     </div>
     <button id='send-mail'><span class="material-icons" onclick="javascript:sendmail()">send</span></button>
 
     <!-- import javascript -->
     <script src="./js/compose-button.js"></script>
     <script src="./js/send.js"></script>
-    
+
 </body>
 
 </html>

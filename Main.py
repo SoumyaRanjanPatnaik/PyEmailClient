@@ -50,8 +50,22 @@ class mail:
         mimeMessage.attach(MIMEText(emailMsg, 'plain'))
         raw_string = base64.urlsafe_b64encode(mimeMessage.as_bytes()).decode()
         message = self.service.users().messages().send(userId='me', body={'raw': raw_string}).execute()
-        print(message)
+       	print(message)
 
+   	def get_labels():
+       	service = authenticate()
+       	results = service.users().labels().list( userId = 'me' ).execute()
+        labels_details = results.get('labels' , [])
+        print('in labels')
+        labels = []
+        others = []
+        for i in labels_details:
+            if 'CATEGORY' in i['name']:
+                others.append(i['name'].replace("CATEGORY_",""))
+            else:
+                labels.append(i['name'])
+        -return {'imp':labels , 'other': others}
+    
 
 #Constants
 file = path.dirname(__file__)
@@ -92,6 +106,13 @@ def authenticate():
     global MAIL_SERVICE
     MAIL_SERVICE.auth()
 
+
+@eel.expose
+def mail_labels():
+  global MAIL_SERVICE
+    return MAIL_SERVICE.get_labels()
+
+
 @eel.expose
 def send_mail(mail_to, mail_subject, emailMsg):
     global MAIL_SERVICE
@@ -101,3 +122,4 @@ if __name__ == '__main__':
     print(" in main")
     port = random.randint(5000,8000)
     start_client('LoginSplash.html', port)
+
