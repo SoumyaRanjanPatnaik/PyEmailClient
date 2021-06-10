@@ -97,7 +97,7 @@
     display: block;
     height: auto;
     width: 170px;
-    top: 86px;
+    bottom: 120px;
     left: 153px;
     background: var(--secondary-color);
     border-radius: 10px;
