@@ -1,12 +1,13 @@
 from functools import total_ordering
-import os
 from Google import Create_Service
 import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from os import path
+from apiclient import errors
+from os import path, error
 import eel
 import random
+import email
 
 
 eel.init('Static')
@@ -85,6 +86,96 @@ class mail:
                 labels.append(i['name'])
         return {'imp': labels, 'other': others}
 
+    def search_message(self, search_string='in:inbox', user_id='me'):
+        """
+        Search the inbox for emails using standard gmail search parameters
+        and return a list of email IDs for each result
+        PARAMS:
+            search_string(default='in:inbox'): search operators you can use with Gmail
+            (see https://support.google.com/mail/answer/7190?hl=en for a list)
+            user_id (default='me'): user id for google api service ('me' works here if
+            already authenticated)
+        RETURNS:
+            List containing email IDs of search query
+        """
+        try:
+            # initiate the list for returning
+            list_ids = []
+
+            # get the id of all messages that are in the search string
+            search_ids = self.service.users().messages().list(userId=user_id, q=search_string).execute()
+            
+            # if there were no results, print warning and return empty string
+            try:
+                ids = search_ids['messages']
+
+            except KeyError:
+                print("WARNING: the search queried returned 0 results")
+                print("returning an empty string")
+                return [""]
+
+            if len(ids)>1:
+                for msg_id in ids:
+                    list_ids.append(msg_id['id'])
+                return list_ids
+
+            else:
+                list_ids.append(ids['id'])
+                return list_ids
+            
+        except (errors.HttpError, error):
+            print("An error occured: %s") % error
+
+    def get_mime(self, msg_id, user_id ='me' ):
+        """
+        Search the inbox for specific message by ID and return it back as a 
+        clean string. String may contain Python escape characters for newline
+        and return line. 
+        
+        PARAMS
+            msg_id: the unique id of the email you need
+            user_id(default = 'me'): user id for google api service ('me' works here if
+            already authenticated)
+        RETURNS
+            A string of encoded text containing the message body
+        """
+        try:
+            # grab the message instance
+            message = self.service.users().messages().get(userId=user_id, id=msg_id,format='raw', metadataHeaders=None).execute()
+
+            # decode the raw string, ASCII works pretty well here
+            msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
+
+            # grab the string from the byte object
+            mime_msg = email.message_from_bytes(msg_str)
+            
+            return mime_msg
+        except Exception:
+            pass
+
+    def mail_body( self, mime_msg):
+        try:
+            # check if the content is multipart (it usually is)
+            content_type = mime_msg.get_content_maintype()
+            if content_type == 'multipart':
+                # there will usually be 2 parts the first will be the body in text
+                # the second will be the text in html
+                parts = mime_msg.get_payload()
+
+                # return the encoded text
+                final_content = parts[0].get_payload()
+                print("\n\n"+final_content)
+                return final_content
+
+            elif content_type == 'text':
+                return mime_msg.get_payload()
+
+            else:
+                print("\nMessage is not text or multipart, returned an empty string")
+                return ""
+        except Exception:
+            pass
+
 
 # Constants
 file = path.dirname(__file__)
@@ -106,11 +197,11 @@ def start_client(page_to_load, PORT=8563):
     print("in start client")
     try:
         eel.start(page_to_load, port=PORT)
-    except:
+    except Exception:
         page_to_load = 'get_chrome.html'
         try:
             eel.start(page_to_load, port=PORT, mode='chrome-app')
-        except:
+        except Exception:
             eel.start(page_to_load, port=PORT, mode='edge')
 
 
