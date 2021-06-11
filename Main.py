@@ -19,7 +19,7 @@ class mail:
 
     def __init__(self):
         """
-        Initialise the constants and gmail api service.
+        Constructor of class 'mail'. Initialises the necessary constants.
         """
         file = path.dirname(__file__)
         self.CLIENT_SECRET_FILE = path.join(file, 'client_secret.json')
@@ -31,6 +31,8 @@ class mail:
     def auth(self):
         """
         Authinticate the user using OAuth2.0.
+
+        RETURNS: None
         """
         print("in authenticate")
         self.service = Create_Service(
@@ -40,10 +42,12 @@ class mail:
         """
         Send Email using GMail API. 
 
-        USAGE:
+        PARAMS:
             mail_to     :   Reciever's email address.
             mail_subject:   Subject of the email.
             emailMsg    :   Message in the email.(Plain Text)
+
+        RETURNS: None
         """
         print("in send mail")
         mimeMessage = MIMEMultipart()
@@ -56,6 +60,18 @@ class mail:
         print(message)
 
     def get_labels(self):
+        """
+        Get labels of the user. Labels are the folders into which the 
+        mail is categorised. This also includes the folders/labels
+        created by the user for their Gmail account.
+
+        RETURNS: 
+        A dictionary with two elements:
+
+            1. 'imp':   The value of this key contains the most used labels.
+
+            2. 'other': The value of this key contains the labels that indicate categories (like updates, promotions, social, etc)
+        """
         print('in labels')
         service = authenticate()
         results = self.service.users().labels().list(userId='me').execute()
@@ -81,6 +97,12 @@ MAIL_SERVICE = mail()
 
 
 def start_client(page_to_load, PORT=8563):
+    """
+    Starts Python-Eel client and loads the page passed in 
+    'page_to_load', on port 'PORT'. 
+
+    RETURNS: None
+    """
     print("in start client")
     try:
         eel.start(page_to_load, port=PORT)
@@ -94,6 +116,15 @@ def start_client(page_to_load, PORT=8563):
 
 @eel.expose
 def token_exists():
+    """
+    Checks if the token already exists. 
+
+    RETURNS:
+    True: If token already exists.
+    False: If token doesn't already exist.
+
+    NOTE: This function is exposed to eel, and can be accessed from javascript.
+    """
     print("In token")
     if path.exists(path.join(file, 'token_gmail_v1.pickle')):
         print("Return true")
@@ -104,24 +135,52 @@ def token_exists():
 
 @eel.expose
 def start_without_chrome():
+    """
+    Loads login page if the user chooses to open in browser, if chrome is not installed already. 
+
+    NOTE: This function is exposed to python eel.
+    """
     port = random.randint(5000, 8000)
     eel.login_page()
 
 
 @eel.expose
 def authenticate():
+    """
+    Function to call the MAIL_SERVICE.auth() function from javascript.
+
+    NOTE: This function is exposed to python eel.
+    """
     global MAIL_SERVICE
     MAIL_SERVICE.auth()
 
 
 @eel.expose
 def mail_labels():
+    """
+    Function to call MAIL_SERVICE.get_labels()
+
+    RETURNS: Dictionary with two elements, having labels 'imp' and 'other'
+
+    NOTE: This function is exposed to python eel.
+    """
     global MAIL_SERVICE
     return MAIL_SERVICE.get_labels()
 
 
 @eel.expose
 def send_mail(mail_to, mail_subject, emailMsg):
+    """
+    Function to call MAIL_SERVICE.send()
+
+    PARAMS:
+        mail_to     :   Reciever's email address.
+        mail_subject:   Subject of the email.
+        emailMsg    :   Message in the email.(Plain Text)
+
+    RETURNS: None
+
+    """
     global MAIL_SERVICE
     MAIL_SERVICE.send(mail_to, mail_subject, emailMsg)
 
