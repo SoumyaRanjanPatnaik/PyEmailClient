@@ -72,17 +72,16 @@ def get_message(service, user_id, msg_id):
     """
     try:
         # grab the message instance
-        message = service.users().messages().get(userId=user_id, id=msg_id,format='full').execute()
+        message = service.users().messages().get(userId=user_id, id=msg_id,format='raw', metadataHeaders=None).execute()
 
         # decode the raw string, ASCII works pretty well here
-        msg_str = base64.urlsafe_b64decode(message['full'].encode('ASCII'))
-
-        msg_headers = message["payload"]["headers"]
-        print(msg_headers)
+        msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
 
         # grab the string from the byte object
         mime_msg = email.message_from_bytes(msg_str)
 
+        print("\n\nFrom: ",mime_msg["From"])
+        print("Subject: ",mime_msg["Subject"])
 
         # check if the content is multipart (it usually is)
         content_type = mime_msg.get_content_maintype()
@@ -93,6 +92,7 @@ def get_message(service, user_id, msg_id):
 
             # return the encoded text
             final_content = parts[0].get_payload()
+            print("\n\n"+final_content)
             return final_content
 
         elif content_type == 'text':
@@ -115,5 +115,7 @@ if __name__ == "__main__":
     SCOPES = ['https://mail.google.com/']
     service=None
     service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
-    ids = search_message(service,'me',"Hello")
-    get_message(service,'me','179ed3536e5d71b8')
+    ids = search_message(service,'me',"in:sent")
+    # print(ids)
+    message = get_message(service,'me',ids[0])
+    # print(message)
