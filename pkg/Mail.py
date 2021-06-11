@@ -17,7 +17,7 @@ class mail:
         Constructor of class 'mail'. Initialises the necessary constants.
         """
         file = path.dirname(__file__)
-        self.CLIENT_SECRET_FILE = path.join(file, 'client_secret.json')
+        self.CLIENT_SECRET_FILE = path.join(path.dirname(file), 'client_secret.json')
         self.API_NAME = 'gmail'
         self.API_VERSION = 'v1'
         self.SCOPES = ['https://mail.google.com/']

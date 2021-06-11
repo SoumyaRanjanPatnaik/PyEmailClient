@@ -8,7 +8,7 @@ from google.auth.transport.requests import Request
 
 def Create_Service(client_secret_file, api_name, api_version, *scopes):
     print(client_secret_file, api_name, api_version, scopes, )
-    file = os.path.dirname(__file__)
+    file = os.path.dirname(os.path.dirname(__file__))
     CLIENT_SECRET_FILE = client_secret_file
     API_SERVICE_NAME = api_name
     API_VERSION = api_version
