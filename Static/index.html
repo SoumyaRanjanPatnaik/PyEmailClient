@@ -1,6 +1,6 @@
 <!-- Home Page -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
     <!-- Meta Tags -->
@@ -32,11 +32,10 @@
 
 
 
-    <script src="./js/labels.js"></script>
     <script src="./eel.js"></script>
 </head>
 
-<body id='body' onload="getlabels()">
+<body id='body'>
     <!-- Top Bar with search, name, logo, settings, etc  -->
     <header id='topbar'>
         <div id="mail-logo">
@@ -58,12 +57,18 @@
     </div>
 
     <!-- Listing mails with subjects, sender's email id and a preview of mail -->
-    <div id='maillist' class=''>maillist</div>
+    <div id='maillist' class=''>
+        <ul id='maillist-ul'>
+            
+        </ul>
+        <!-- Populate with list of mails using javascript -->
+    </div>
 
     <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
     <div id="readmail" class="">aside</div>
 
     <span id='compose-icon' class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
+
     <div class="wrapper">
 
         <div id="compose-window" class="border">
@@ -81,8 +86,15 @@
     <button id='send-mail'><span class="material-icons" onclick="javascript:sendmail()">send</span></button>
 
     <!-- import javascript -->
+    <script src="./js/labels.js"></script>
+    <script src="./js/listmail.js"></script>
     <script src="./js/compose-button.js"></script>
     <script src="./js/send.js"></script>
+    <script>
+        getlabels()
+        listmail()
+    //    await Promise.all([getlabels(), listmail()]);
+    </script>
 
 </body>
 

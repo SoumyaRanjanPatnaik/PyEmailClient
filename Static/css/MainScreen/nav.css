@@ -13,36 +13,49 @@
     flex-basis: 100%;
     /* Styling the menubar  */
     background: var(--primary-color);
-    font-family: 'Hi Melody';
-    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
     font-weight: 400;
     user-select: none;
     user-zoom: none;
 
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
-.menu-bar::-webkit-scrollbar{
-    z-index: -1;
+::-webkit-scrollbar{
+    width: 4px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--ternary-color);
+    max-height: 40px;
 }
 
 /* Properties of the List of links  */
 
 .menu-bar ul {
     list-style: none;
-    padding: 0;
     color: var(--text-color);
     padding: 5px 0px;
 }
 
 
+/* Current Folder(Inbox, sent, spam, etc) */
+
+ul .active {
+    background-color: var(--accents-color);
+    padding: 16px 17px !important;
+    margin: 5px 0px;
+    transform: scale(1.003);
+}
 /* List Element properties */
 
 .menu-bar ul li {
-    padding: 20px;
+    padding: 12px 20px;
     width: 100%;
-    transition: background-color 0.1s ease-in-out, border-radius 0.6s 0.2s ease-in;
-    border-radius: 60px;
+    transition: background-color 0.1s ease-in-out, border-radius 0.3s 0.4s ease-in;
+    border-radius: 20px;
+    /* position: relative; */
 }
 
 
@@ -55,20 +68,14 @@
 }
 
 
-/* Current Folder(Inbox, sent, spam, etc) */
-
-.active {
-    border-radius: 10px;
-    background-color: var(--accents-color);
-    margin: 15px 0px;
-}
 
 
 /* Highlight item with accent color and change border radius on hover */
 
 .menu-bar>ul li:hover {
     background-color: var(--accents-color);
-    border-radius: 12px;
+    border-radius: 8px;
+    transform: scale(1.003);
 }
 
 
@@ -85,7 +92,18 @@
 .sub-menu-1 {
     display: block;
     position: absolute;
-    left:143px;
+    left: 150px;
+    top:0px;
+    height: 0px;
+    width: 0px;
+    overflow: auto;
+    transition: left 0.3s ease-in-out;  
+}
+.sub-menu-2 {
+    display: block;
+    position: absolute;
+    left: 150px;
+    bottom:0px;
     height: 0px;
     width: 0px;
     overflow: auto;
@@ -100,6 +118,6 @@
     top: 86px;
     left: 153px;
     background: var(--secondary-color);
-    border-radius: 10px;
+    border-radius: 7px;
     z-index: 100;
 }

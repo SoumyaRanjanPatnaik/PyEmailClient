@@ -1,4 +1,4 @@
-from os import path, error
+from os import get_blocking, path, error
 import eel
 import random
 from pkg import mail
@@ -106,12 +106,20 @@ def send_mail(mail_to, mail_subject, emailMsg):
     MAIL_SERVICE.send(mail_to, mail_subject, emailMsg)
 
 @eel.expose
-def get_ids():
-    pass
+def get_ids(query="in:inbox", user_id='me'):
+    global MAIL_SERVICE
+    print("in get_ids",MAIL_SERVICE.search_message(query, user_id))
+    return MAIL_SERVICE.search_message(query, user_id)
 
 @eel.expose
-def get_subject():
-    pass
+def get_mail_header(msg_id, user_id='me'):
+    global MAIL_SERVICE
+    mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
+    return {
+        'subject': mime_element['subject'],
+        'from': mime_element['from'],
+        'to': mime_element['to']
+    }
 
 
 if __name__ == '__main__':
