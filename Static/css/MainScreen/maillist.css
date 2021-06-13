@@ -20,7 +20,8 @@
     align-items: stretch;
     justify-content: space-evenly;
     padding: 5px 12px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     box-shadow: var(--maillist-box-shadow-color) 0px 1px  ;
@@ -39,14 +40,9 @@
 .from{
     font-size: 1.1rem;
     font-weight: 700;
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .subject{
-    overflow:hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 0.9rem;
 }
