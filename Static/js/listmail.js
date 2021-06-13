@@ -9,8 +9,14 @@ async function listmail(){
 	}
 }
 
-eel.expose(list_content);
-function list_content(content){
+async function list_content(query=null){
 	let maillist = document.getElementById("maillist-ul");
-	maillist.innerHTML+=content;
+	if(query!=null){
+		maillist.innerHTML= await eel.maillist_html(query)();
+	}
+	else{
+
+		maillist.innerHTML= await eel.maillist_html()();
+	}
+	console.log( maillist.innerHTML)
 }

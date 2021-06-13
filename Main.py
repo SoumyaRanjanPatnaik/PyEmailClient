@@ -105,11 +105,12 @@ def send_mail(mail_to, mail_subject, emailMsg):
     global MAIL_SERVICE
     MAIL_SERVICE.send(mail_to, mail_subject, emailMsg)
 
+
 @eel.expose
-def get_ids(query="in:inbox", user_id='me'):
+def get_ids(query, user_id='me'):
     global MAIL_SERVICE
-    print("in get_ids",MAIL_SERVICE.search_message(query, user_id))
     return MAIL_SERVICE.search_message(query, user_id)
+
 
 @eel.expose
 def get_mail_header(msg_id, user_id='me'):
@@ -120,6 +121,20 @@ def get_mail_header(msg_id, user_id='me'):
         'from': mime_element['from'],
         'to': mime_element['to']
     }
+
+
+@eel.expose
+def maillist_html(query="in:inbox", user_id='me'):
+    print("in maillist_html")
+    ids_list = get_ids(query, user_id)
+    html_str = ""
+    for id in ids_list:
+        header = get_mail_header(id)
+        html_str.join("<li class='mail-prev' id='"+id+"'><h2 class='from'>" +
+                      header['from']+"</h2><h2 class='subject'>" + header['subject']+"</h2></li>")
+        print(id)
+    print(html_str)
+    return html_str
 
 
 if __name__ == '__main__':
