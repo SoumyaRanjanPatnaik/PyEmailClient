@@ -107,7 +107,7 @@ def send_mail(mail_to, mail_subject, emailMsg):
 
 
 @eel.expose
-def get_ids(query, user_id='me'):
+def get_ids(query="in:inbox", user_id='me'):
     global MAIL_SERVICE
     return MAIL_SERVICE.search_message(query, user_id)
 
