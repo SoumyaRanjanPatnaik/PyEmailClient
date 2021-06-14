@@ -18,7 +18,7 @@ dependencies:
   - pip:
     - eel
     - pyinstaller
-    - google-api-python-client
+    - google-api-python-client == 1.8.0
     - google-auth-httplib2
     - google-auth-oauthlib
   - autopep8
