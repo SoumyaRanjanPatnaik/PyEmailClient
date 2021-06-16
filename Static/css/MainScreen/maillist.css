@@ -6,14 +6,16 @@
     flex-direction: column;
     text-overflow: ellipsis;
     overflow: auto;
+    color: var(--text-color);
+    border-radius: 5px;
 
 }
 
 .mail-prev{
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(44, 44, 44) ;
-    background: rgb(20, 20, 20);
+    /* border-bottom: 1px solid var(--ternary-color); */
+    background: var(--maillist-bg-color);
     height: 65px;
     align-items: stretch;
     justify-content: space-evenly;
@@ -21,24 +23,29 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    box-shadow: var(--maillist-box-shadow-color) 0px 1px  ;
+    border-radius: 2px;
+    border-bottom-left-radius: 0 ;
+    border-bottom-right-radius: 0;
+    margin: 1.5px;
+    border-bottom: 1px solid rgb(83, 83, 83);
 }
 
 .mail-prev:hover{
-    background: rgb(75, 75, 75);
-    box-shadow: rgba(109, 109, 109, 0.678) 0 0 10 10;
+    background: var(--ternary-color);
     cursor: pointer;
 }
 
 .from{
-    font-size: 1.1rem;
-    font-weight: 700;
-    overflow:hidden;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .subject{
-    overflow:hidden;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 0.9rem;

@@ -19,10 +19,14 @@
     user-select: none;
     user-zoom: none;
 
-    overflow: auto;
+    overflow: hidden;
     scroll-behavior: smooth;
 }
 
+.scrollable:hover{
+    overflow: auto;
+    padding-left: 4px;
+}
 ::-webkit-scrollbar{
     width: 4px;
 }
