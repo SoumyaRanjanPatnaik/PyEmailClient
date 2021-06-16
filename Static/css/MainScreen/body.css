@@ -20,6 +20,7 @@ body{
     grid-template-columns:  170px  265px  220px  repeat(4,1fr);
     grid-template-rows: 50px auto;
     font-size: 15px;
+    margin-left: calc(100vw -100%) ;
 }
 
 ul,li{
