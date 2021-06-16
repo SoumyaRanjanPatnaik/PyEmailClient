@@ -1,4 +1,5 @@
-from os import get_blocking, path, error
+import multiprocessing
+from os import path, error
 import eel
 import random
 from pkg import mail
@@ -124,6 +125,7 @@ def get_mail_header(msg_id, user_id='me'):
 
 
 if __name__ == '__main__':
+    multiprocessing.freeze_support()
     print(" in main")
     port = random.randint(5000, 8000)
     start_client('LoginSplash.html', port)
