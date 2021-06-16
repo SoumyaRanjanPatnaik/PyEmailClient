@@ -8,15 +8,3 @@ async function listmail(){
 		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"'><h2 class='from'>"+header['from']+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
 	}
 }
-
-async function list_content(query=null){
-	let maillist = document.getElementById("maillist-ul");
-	if(query!=null){
-		maillist.innerHTML= await eel.maillist_html(query)();
-	}
-	else{
-
-		maillist.innerHTML= await eel.maillist_html()();
-	}
-	console.log( maillist.innerHTML)
-}

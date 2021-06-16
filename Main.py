@@ -123,20 +123,6 @@ def get_mail_header(msg_id, user_id='me'):
     }
 
 
-@eel.expose
-def maillist_html(query="in:inbox", user_id='me'):
-    print("in maillist_html")
-    ids_list = get_ids(query, user_id)
-    html_str = ""
-    for id in ids_list:
-        header = get_mail_header(id)
-        html_str.join("<li class='mail-prev' id='"+id+"'><h2 class='from'>" +
-                      header['from']+"</h2><h2 class='subject'>" + header['subject']+"</h2></li>")
-        print(id)
-    print(html_str)
-    return html_str
-
-
 if __name__ == '__main__':
     print(" in main")
     port = random.randint(5000, 8000)
