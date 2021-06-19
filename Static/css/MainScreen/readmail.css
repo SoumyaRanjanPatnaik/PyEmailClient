@@ -10,3 +10,13 @@
     font-size: 1.05rem;
     overflow: scroll;
 }
+
+#mail-body{
+    align-self: stretch;
+    justify-self: stretch;
+    border: none;
+    box-shadow: rgb(116, 116, 116) -1px 1px 3px;
+    height: 100%;
+    margin-right:13px;
+    margin-bottom:13px;
+}

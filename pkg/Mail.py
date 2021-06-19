@@ -6,6 +6,7 @@ from email.mime.text import MIMEText
 from apiclient import errors
 from os import path, error
 import email
+import quopri
 
 class mail:
     """
@@ -168,12 +169,12 @@ class mail:
                 parts = mime_msg.get_payload()
 
                 # return the encoded text
-                final_content = parts[1].get_payload()
+                final_content = quopri.decodestring(parts[1].get_payload()).decode('utf-8')
                 print("\n\n"+final_content)
                 return final_content
 
             elif content_type == 'text':
-                return mime_msg.get_payload()
+                return quopri.decode(mime_msg.get_payload()).decode('utf-8')
 
             else:
                 print("\nMessage is not text or multipart, returned an empty string")
