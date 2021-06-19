@@ -5,18 +5,23 @@
     display: flex;
     flex-flow: column nowrap;
     
-    padding: 30px;
+    justify-content: stretch;
+    padding: 10px 13px 8px 15px;
 
     font-size: 1.05rem;
-    overflow: scroll;
+    font-weight: 600;
 }
 
 #mail-body{
-    align-self: stretch;
-    justify-self: stretch;
     border: none;
-    box-shadow: rgb(116, 116, 116) -1px 1px 3px;
+    box-shadow: rgb(116, 116, 116) -0.7px 0.7px 2.6px;
     height: 100%;
-    margin-right:13px;
-    margin-bottom:13px;
+    margin-bottom:5px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+#subject{
+    font-weight: 800;
+    font-size: 1.6rem;
 }
