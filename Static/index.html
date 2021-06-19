@@ -44,7 +44,7 @@
         </div>
         <div id="search-bar">
             <input type="text" name="Search" id="search-field" class='search' placeholder="Search Mail">
-            <button id='search-now' class='search'><span class="material-icons">search</span></button>
+            <button id='search-now' class='search' onclick="search()"><span class="material-icons" >search</span></button>
         </div>
         <span id='settings' class="material-icons icons">settings</span>
     </header>
@@ -90,6 +90,7 @@
     <script src="./js/listmail.js"></script>
     <script src="./js/compose-button.js"></script>
     <script src="./js/send.js"></script>
+    <script src="./js/readmail.js"></script>
     <script>
         getlabels()
         listmail()

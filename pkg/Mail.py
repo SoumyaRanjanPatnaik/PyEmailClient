@@ -98,6 +98,8 @@ class mail:
             # get the id of all messages that are in the search string
             search_ids = self.service.users().messages().list(userId=user_id, q=search_string).execute()
             
+            ids={}
+
             # if there were no results, print warning and return empty string
             try:
                 ids = search_ids['messages']
@@ -105,7 +107,7 @@ class mail:
             except KeyError:
                 print("WARNING: the search queried returned 0 results")
                 print("returning an empty string")
-                return [""]
+                return []
 
             if len(ids)>1:
                 for msg_id in ids:
@@ -113,7 +115,7 @@ class mail:
                 return list_ids
 
             else:
-                list_ids.append(ids['id'])
+                list_ids.append(ids[0]['id'])
                 return list_ids
             
         except (errors.HttpError, error):

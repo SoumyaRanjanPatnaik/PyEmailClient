@@ -8,7 +8,7 @@ async function getlabels(){
         document.getElementById('label').innerHTML += "<li id="+labels['imp'][index]+"><a href = '#'><span>"+labels['imp'][index]+"</span></a></li>"
     }
     if (labels['other'].length>0){
-        document.getElementById('label').innerHTML += "<li><a href = '#'><span>Others</span></a><div class = 'sub-menu-1'><ul id = 'other_label'></ul></div></li>"
+        document.getElementById('label').innerHTML += "<li><a href = '#'><span>Others</span></a><div class = 'sub-menu-2'><ul id = 'other_label'></ul></div></li>"
     }
     for (let index = 0; index < labels['other'].length; index++) {
         document.getElementById('other_label').innerHTML += "<li><a href = '#'>"+labels['other'][index]+"</a></li>"
