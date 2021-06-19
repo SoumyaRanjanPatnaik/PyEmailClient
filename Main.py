@@ -120,7 +120,6 @@ def get_mail_header(msg_id, user_id='me'):
     
     mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
     mail_subject=quopri.decodestring(mime_element['subject']).decode('utf-8')
-    mail_subject=re.sub(r"(=\?.*\?=)(?!$)", r"\1 ", mail_subject)
     return {
         'subject': str((make_header(decode_header(mail_subject)))),
         'from': mime_element['from'],
