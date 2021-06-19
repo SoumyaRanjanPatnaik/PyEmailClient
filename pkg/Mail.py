@@ -124,31 +124,41 @@ class mail:
     def get_mime(self, msg_id, user_id ='me' ):
         """
         Search the inbox for specific message by ID and return it back as a 
-        clean string. String may contain Python escape characters for newline
-        and return line. 
+        MIME object. The MIME object may contain "subject", "from", "to", 
+        and the mail body along with some metadata. 
         
         PARAMS
             msg_id: the unique id of the email you need
             user_id(default = 'me'): user id for google api service ('me' works here if
             already authenticated)
         RETURNS
-            A string of encoded text containing the message body
+            Mail in form of MIME element.
         """
         try:
             # grab the message instance
             message = self.service.users().messages().get(userId=user_id, id=msg_id,format='raw', metadataHeaders=None).execute()
 
             # decode the raw string, ASCII works pretty well here
-            msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
+            msg_str = base64.urlsafe_b64decode(message['raw'].encode('UTF-8'))
 
             # grab the string from the byte object
             mime_msg = email.message_from_bytes(msg_str)
-            
             return mime_msg
         except Exception:
             pass
 
-    def mail_body( self, mime_msg):
+    def mail_body( self, mime_msg=None):
+        """
+            Takes MIME object as the only parameter and returns
+            the body of the message.
+
+            PARAMS:
+                mime_msg: MIME type containing the data of the email.
+            
+            RETURNS:
+                The body of the message as string in plain text. The string
+                might contain escape characters for new line and return.
+        """
         try:
             # check if the content is multipart (it usually is)
             content_type = mime_msg.get_content_maintype()
@@ -158,7 +168,7 @@ class mail:
                 parts = mime_msg.get_payload()
 
                 # return the encoded text
-                final_content = parts[0].get_payload()
+                final_content = parts[1].get_payload()
                 print("\n\n"+final_content)
                 return final_content
 

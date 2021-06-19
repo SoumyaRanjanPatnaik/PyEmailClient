@@ -2,4 +2,11 @@
 /* Section to read the mail. Has subject, sender's name and mail, attatchments, etc */
 #readmail{
     grid-column: 4/8;
+    display: flex;
+    flex-flow: column nowrap;
+    
+    padding: 30px;
+
+    font-size: 1.05rem;
+    overflow: scroll;
 }

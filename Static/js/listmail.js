@@ -20,7 +20,7 @@ async function listmail(query=null){
 	for (let index=0; index<ids.length; index++) {
 		let header = await eel.get_mail_header(ids[index])();
 		console.log(ids[index])
-		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='javascript:readmail()'><h2 class='from'>"+header['from']+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
+		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='javascript:readmail(this.id)'><h2 class='from'>"+header['from']+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
 	}
 }
 
