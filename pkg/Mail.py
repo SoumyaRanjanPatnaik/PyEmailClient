@@ -1,4 +1,5 @@
 from functools import total_ordering
+from typing import final
 from pkg.Google import Create_Service
 import base64
 from email.mime.multipart import MIMEMultipart
@@ -163,6 +164,7 @@ class mail:
         try:
             # check if the content is multipart (it usually is)
             content_type = mime_msg.get_content_maintype()
+
             if content_type == 'multipart':
                 # there will usually be 2 parts the first will be the body in text
                 # the second will be the text in html

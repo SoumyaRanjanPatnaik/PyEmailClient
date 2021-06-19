@@ -133,7 +133,8 @@ def get_mail_body(msg_id):
 
     mime_element = MAIL_SERVICE.get_mime(msg_id)
     body=MAIL_SERVICE.mail_body(mime_element)
-
+    if body is None:
+        body = mime_element.get_payload()[0].get_payload()
     mail_contents = {
         'headers': {
             'subject': mime_element['subject'],
