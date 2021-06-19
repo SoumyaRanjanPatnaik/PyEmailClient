@@ -2,7 +2,9 @@ from os import path, error
 import eel
 import random
 from pkg import mail
-
+import quopri
+from email.header import Header, decode_header, make_header
+import re
 
 
 eel.init('Static')
@@ -115,9 +117,11 @@ def get_ids(query="in:inbox", user_id='me'):
 @eel.expose
 def get_mail_header(msg_id, user_id='me'):
     global MAIL_SERVICE
+    
     mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
+    mail_subject=quopri.decodestring(mime_element['subject']).decode('utf-8')
     return {
-        'subject': mime_element['subject'],
+        'subject': str((make_header(decode_header(mail_subject)))),
         'from': mime_element['from'],
         'to': mime_element['to']
     }
@@ -129,7 +133,8 @@ def get_mail_body(msg_id):
 
     mime_element = MAIL_SERVICE.get_mime(msg_id)
     body=MAIL_SERVICE.mail_body(mime_element)
-
+    if body is None:
+        body = mime_element.get_payload()[0].get_payload()
     mail_contents = {
         'headers': {
             'subject': mime_element['subject'],
