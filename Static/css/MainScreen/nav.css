@@ -20,11 +20,13 @@
     user-zoom: none;
 
     overflow: hidden;
+    overflow-x: visible;
     scroll-behavior: smooth;
 }
 
 .scrollable:hover{
-    overflow: auto;
+    overflow: scroll;
+    overflow-x: visible;
     padding-left: 4px;
 }
 ::-webkit-scrollbar{
@@ -59,7 +61,7 @@ ul .active {
     width: 100%;
     transition: background-color 0.1s ease-in-out, border-radius 0.3s 0.4s ease-in;
     border-radius: 20px;
-    /* position: relative; */
+    position: relative;
 }
 
 
@@ -115,13 +117,14 @@ ul .active {
 }
 
 /* For showing the submenu on hovering */
-.menu-bar ul li:hover .sub-menu-1 {
+.menu-bar ul li:hover .sub-menu-1,
+.menu-bar ul li:hover .sub-menu-2 {
     display: block;
     height: auto;
     width: 170px;
-    top: 86px;
-    left: 153px;
+    /* top: 86px;
+    left: 153px; */
     background: var(--secondary-color);
     border-radius: 7px;
-    z-index: 100;
+    z-index: 100000;
 }

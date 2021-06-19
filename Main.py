@@ -1,9 +1,8 @@
-import multiprocessing
 from os import path, error
 import eel
 import random
 from pkg import mail
-import email
+
 
 
 eel.init('Static')
@@ -123,9 +122,27 @@ def get_mail_header(msg_id, user_id='me'):
         'to': mime_element['to']
     }
 
+@eel.expose
+def get_mail_body(msg_id):
+
+    print("in get_mail_body")
+
+    mime_element = MAIL_SERVICE.get_mime(msg_id)
+    body=MAIL_SERVICE.mail_body(mime_element)
+
+    mail_contents = {
+        'headers': {
+            'subject': mime_element['subject'],
+            'from': mime_element['from'],
+            'to': mime_element['to']
+        },
+        'body': body
+    }
+
+    return mail_contents
+
 
 if __name__ == '__main__':
-    multiprocessing.freeze_support()
     print(" in main")
     port = random.randint(5000, 8000)
     start_client('LoginSplash.html', port)
