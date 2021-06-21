@@ -2,9 +2,15 @@
 1. [Introduction](#intro)
 2. [Building PyEmailClient](#build)
 3. [Usage](#usage)
-	a. [Login](#login)
-	b. [Email Dashboard](#dash)
-	c. [Search Mail](#search)
+	1. [Login](#login)
+	2. [Email Dashboard](#dash)
+	3. [Search Mail](#search)
+	4. [Navigate Labels](#navigate)
+	5. [Compose](#compose)
+4. [Understanding the code]()
+5. [Packages Used]()
+6. [Credits]()
+7. [Contributors]()
 # Introduction <a id="intro"></a>
 
 **_PyMail_**(_PyEmailClient_) is fully functional, cross-platform Email Client for sending and browsing emails, written in Python. It only works for gmail accounts for now.
@@ -80,7 +86,7 @@ To setup the project, follow the following steps:
 
 This app requires a chromium-based browser or chrome for the best experience. But the app can be opened in a browser as a web-app
 
-## Login:
+## 1. Login:
 
 You can log into the software by using OAuth2.0. Upon opening PyMail, you will see the login page. 
 
@@ -95,11 +101,11 @@ On clicking the login button (or Continue to PyMail button if you've logged in b
 
 **NOTE**: Do **_NOT_** share the token file (token_gmail_v1.pickle) with anyone. Doing so will allow anyone to access your GMail account.
 
-## Email Dasboard <a id = "dash"></a>:
+## 2. Email Dasboard <a id = "dash"></a>:
 The image of the email Dashboard has been attatched below:
 
 ![Image of Email Dashboard](./assets/readme/dashboard_dark.png)
-<figcaption align = "center"><b>Fig.2 - Dashboard </b></figcaption>
+<figcaption align = "center"><b>Fig.2 - Dashboard </b></figcaption><br>
 
 **NOTE**: No images for the listing of mails portion has been shown for privacy reasons.
 
@@ -108,19 +114,16 @@ Type your search query inside the "Search Mail" field present in the top-bar.
 ![Image of search bar](./assets/readme/search_dark.png)
 <figcaption align = "center"><b>Fig.3 - Search bar / top bar </b></figcaption>
 
-## 4. Navigate folders/lables.
-Click on the name of the folder/label to see the name/label 
-![Image of sidebar](./assets/readme/labels_dark.png)
-<figcaption align = "center"><b>Fig.4 - Sidebar </b></figcaption>
+## 4. Navigate lables<a id = "navigate"></a>
+Click on the name of the label on the navigation pane present on the left side of the window to see all the emails tagged with that label.
 
-## 5. Compose:
+## 5. Compose<a id='compose'></a>:
 Click the plus (+) icon to open the compose window.
 
 ![Image of Compose window](./assets/readme/compose_icon_dark.png)
-<figcaption align = "center"><b>Fig.3.1 - Compose Icon </b></figcaption>
+<figcaption align = "center"><b>Fig.4 - Compose Icon </b></figcaption>
 
 On clicking, the compose window opens up and the plus icon rotates to become the close window icon.
 
 ![Image of Compose window](./assets/readme/compose_dark.png)
-<figcaption align = "center"><b>Fig.3.1 - Compose Windows (Dark)</b></figcaption>
-
+<figcaption align = "center"><b>Fig.5 - Compose Windows (Dark)</b></figcaption>
