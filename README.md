@@ -30,14 +30,14 @@ To setup the project, follow the following steps:
 
 3.  Setup and activate anaconda environment.
 
-        	conda env create -f environment.yml
-        	conda activate EmailClient
+		conda env create -f environment.yml
+        conda activate EmailClient
 
     This will install all the required libraries and dependencies required for running PyMail inside the environment '_EmailClient_' and activate it. You are all set for reviewing the codebase, making changes and contributing to this repository.
 
 4.  To run the program, first make sure that you are inside the _EmailClient_ anaconda environment. Then run the _Main.py_ python file.
 
-        	python Main.py
+		python Main.py
 
     The application should automatically open up.
 
