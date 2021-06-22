@@ -165,6 +165,15 @@ def get_mail_body(msg_id):
 
     return mail_contents
 
+@eel.expose
+def theme_read():
+    f = open("theme.json", 'r')
+    return f.read()
+
+@eel.expose
+def theme_write(theme_json):
+    f = open("theme.json", 'w')
+    f.write(theme_json)
 
 if __name__ == '__main__':
     print(" in main")

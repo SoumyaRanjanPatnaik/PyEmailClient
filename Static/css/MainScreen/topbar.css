@@ -67,7 +67,7 @@
 
 
 /* Settings icon */
-#settings{
+#theme_toggle{
     display: inline-block;
     border-radius: 50%;
     padding:6px;
@@ -75,12 +75,12 @@
 
 /* Properties to be applied to settings icon
 on hovering on it  */
-#settings:hover{
+#theme_toggle:hover{
     background-color: var(--ternary-color);
     color: var(--text-color);
     cursor: pointer;
 }
 
-#settings:active{
+#theme_toggle:active{
     filter: invert(0.8);
 }
