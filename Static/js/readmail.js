@@ -1,5 +1,6 @@
 async function readmail(id){
 	let pane = document.getElementById("readmail");
+	pane.innerHTML = `<p style="text-align: center; color: red">LOADING...</p>`
 	mail_data=await eel.get_mail_body(id)();
 
 	subject = mail_data["headers"]["subject"];
