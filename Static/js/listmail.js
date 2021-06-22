@@ -27,6 +27,7 @@ async function append_list(){
 		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='javascript:readmail(this.id)'><h2 class='from'>"+header['from']+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
 		index++;
 		reset = requestAnimationFrame(append_list);
+
 } 
 
 async function search(){
@@ -37,13 +38,14 @@ async function search(){
 	flag=false;
 }
 
-// let search_bar = document.getElementById('search-bar');
-// search_bar.addEventListener(formsubmit_action);
+let search_bar = document.getElementById('search-bar');
 function formsubmit_action(event){
 	event.preventDefault()
 	requestAnimationFrame(()=>{
 		cancelAnimationFrame(reset);
+		maillist.innerHTML=`<p style="text-align: center; color: red">LOADING...</p>`
 	})
 	search();
-	return false
+	return false;
 }
+search_bar.addEventListener('submit',formsubmit_action);
