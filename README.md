@@ -7,10 +7,9 @@
 	3. [Search Mail](#search)
 	4. [Navigate Labels](#navigate)
 	5. [Compose](#compose)
-4. [Understanding the code]()
-5. [Packages Used]()
-6. [Credits]()
-7. [Contributors]()
+4. [Understanding the code](#code)
+5. [Packages Used](#packages)
+6. [Contributors](#contributors)
 # Introduction <a id="intro"></a>
 
 **_PyMail_**(_PyEmailClient_) is fully functional, cross-platform Email Client for sending and browsing emails, written in Python. It only works for gmail accounts for now.
@@ -82,11 +81,11 @@ To setup the project, follow the following steps:
 		.\PyEmailClient.exe
 
 
-# Usage <a id="usage"></a>:
+# Usage <a id="usage"></a>
 
 This app requires a chromium-based browser or chrome for the best experience. But the app can be opened in a browser as a web-app
 
-## 1. Login:
+## 1. Login<a id='login'></a>:
 
 You can log into the software by using OAuth2.0. Upon opening PyMail, you will see the login page. 
 
@@ -127,3 +126,10 @@ On clicking, the compose window opens up and the plus icon rotates to become the
 
 ![Image of Compose window](./assets/readme/compose_dark.png)
 <figcaption align = "center"><b>Fig.5 - Compose Windows (Dark)</b></figcaption>
+
+# Understanding the code<a id='code'></a>
+# Packages Used<a id='packages'></a>
+1. Gmail API
+2. Python Eel
+3. PyInstaller
+# Contributors<a id='contributors'></a>

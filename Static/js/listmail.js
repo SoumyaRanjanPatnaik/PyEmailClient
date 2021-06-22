@@ -7,10 +7,8 @@ async function listmail(query=null){
 		ids = await eel.get_ids()();
 	}
 	else{
-		alert(query);
 		ids = await eel.get_ids(query)();
-		maillist.innerHTML="";
-
+		maillist.innerHTML=`<p style="text-align: center; color: red">Showing results for "${query}" </p>`;
 	}
 	if (ids.length==0){
 		alert("No results found");
