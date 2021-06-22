@@ -25,9 +25,8 @@
 }
 
 .scrollable:hover{
-    overflow: scroll;
+    overflow: auto;
     overflow-x: visible;
-    padding-left: 4px;
 }
 ::-webkit-scrollbar{
     width: 4px;

@@ -1,8 +1,10 @@
-let flag = true;
+let flag, reset, index, ids;
+
+let maillist=document.getElementById("maillist-ul")
+
 async function listmail(query=null){
-	let maillist = document.getElementById("maillist-ul");
-	let ids;
 	flag=true;
+	index=0;
 	if(query==null){
 		ids = await eel.get_ids()();
 	}
@@ -15,12 +17,17 @@ async function listmail(query=null){
 		
 	}
 	console.log(ids)
-	for (let index=0; index<ids.length; index++) {
+	append_list();
+}
+
+async function append_list(){
+
 		let header = await eel.get_mail_header(ids[index])();
 		console.log(ids[index])
 		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='javascript:readmail(this.id)'><h2 class='from'>"+header['from']+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
-	}
-}
+		index++;
+		reset = requestAnimationFrame(append_list);
+} 
 
 async function search(){
 	let field = document.getElementById("search-field");
@@ -28,4 +35,15 @@ async function search(){
 	field.value="";
 	listmail(field_value)();
 	flag=false;
+}
+
+// let search_bar = document.getElementById('search-bar');
+// search_bar.addEventListener(formsubmit_action);
+function formsubmit_action(event){
+	event.preventDefault()
+	requestAnimationFrame(()=>{
+		cancelAnimationFrame(reset);
+	})
+	search();
+	return false
 }
