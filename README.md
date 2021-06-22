@@ -127,9 +127,16 @@ On clicking, the compose window opens up and the plus icon rotates to become the
 ![Image of Compose window](./assets/readme/compose_dark.png)
 <figcaption align = "center"><b>Fig.5 - Compose Windows (Dark)</b></figcaption>
 
+## 6. Switching thmes:
+
+Click on the settings icon in the top-right corner of the screen. This should toggle the theme from light to dark. Also, the theme that you last chose will load by default. 
+
 # Understanding the code<a id='code'></a>
 # Packages Used<a id='packages'></a>
 1. Gmail API
 2. Python Eel
 3. PyInstaller
 # Contributors<a id='contributors'></a>
+1. Divyanshu Tirkey
+2. Kshitiz Kumar Singh
+3. Soumya Ranjan Patnaik

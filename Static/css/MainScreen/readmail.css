@@ -9,12 +9,10 @@
 
     font-size: 1.05rem;
     font-weight: 600;
-
-    /* z-index: -1; */
 }
 
 #mail-body{
-    border: 1px solid black;
+    border: 1px solid rgb(27, 27, 27);
     height: 100%;
     margin-bottom:5px;
     font-family: 'Courier New', Courier, monospace;
