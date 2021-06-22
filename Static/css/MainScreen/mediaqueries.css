@@ -1,0 +1,9 @@
+@media (max-width:1350px) {
+	.from{
+		font-size: 0.95rem;
+	}
+
+	.subject{
+		font-size: 0.8rem;
+	}
+}

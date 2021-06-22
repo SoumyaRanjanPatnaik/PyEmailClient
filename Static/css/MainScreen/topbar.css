@@ -2,7 +2,7 @@
 
 /* Properties of topbar container  */
 #topbar{
-    grid-column: 1/8;
+    grid-column: 1/4;
     display: flex;
     justify-content: space-between;
     align-items: center;
