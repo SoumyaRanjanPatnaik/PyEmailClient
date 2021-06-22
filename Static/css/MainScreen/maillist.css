@@ -1,7 +1,5 @@
 /* Listing mails with subjects, sender's email id and a preview of mail  */
 #maillist{
-    grid-column: 2/4;
-    grid-row: 2/3;
     display: flex;
     flex-direction: column;
     text-overflow: ellipsis;
@@ -44,7 +42,7 @@
     font-weight: 700;
 }
 
-.subject{
+.listmail-subject{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

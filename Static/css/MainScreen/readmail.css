@@ -1,7 +1,6 @@
 
 /* Section to read the mail. Has subject, sender's name and mail, attatchments, etc */
 #readmail{
-    grid-column: 4/8;
     display: flex;
     flex-flow: column nowrap;
     
@@ -10,6 +9,8 @@
 
     font-size: 1.05rem;
     font-weight: 600;
+
+    /* z-index: -1; */
 }
 
 #mail-body{
@@ -21,7 +22,7 @@
 
 }
 
-#subject{
+#readmail-subject{
     font-weight: 800;
     font-size: 1.6rem;
 }

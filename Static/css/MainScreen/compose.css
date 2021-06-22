@@ -52,7 +52,7 @@
     padding: 1rem;
     background-color: var(--primary-color);
 }
-#subject{
+#compose-subject{
     font-weight: 800;
 }
 .mail-input{
