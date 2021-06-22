@@ -42,10 +42,10 @@
             <span class="material-icons"> email </span>
             <strong class="bold-text" style="padding: 0px 2px;">PyMail</strong>
         </div>
-        <div id="search-bar">
-            <input type="text" name="Search" id="search-field" class='search' placeholder="Search Mail">
-            <button id='search-now' class='search' onclick="search()"><span class="material-icons" >search</span></button>
-        </div>
+        <form id="search-bar" onsubmit="return false">
+            <input type="search" name="Search" id="search-field" class='search' placeholder="Search Mail">
+            <input type="image" src="./img/Logos/search.png" id='search-now' class='search'>
+        </form>
         <span id='settings' class="material-icons icons">settings</span>
     </header>
 

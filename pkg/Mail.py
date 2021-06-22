@@ -1,3 +1,4 @@
+from email.header import decode_header, make_header
 from functools import total_ordering
 from typing import final
 from pkg.Google import Create_Service
@@ -7,6 +8,7 @@ from email.mime.text import MIMEText
 from apiclient import errors
 from os import path, error
 import email
+from email import policy
 import quopri
 
 class mail:
@@ -144,7 +146,7 @@ class mail:
             msg_str = base64.urlsafe_b64decode(message['raw'].encode('UTF-8'))
 
             # grab the string from the byte object
-            mime_msg = email.message_from_bytes(msg_str)
+            mime_msg = email.message_from_bytes(msg_str,policy=policy.default)
             return mime_msg
         except Exception:
             pass

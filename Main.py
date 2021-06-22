@@ -119,11 +119,20 @@ def get_mail_header(msg_id, user_id='me'):
     global MAIL_SERVICE
     
     mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
-    mail_subject=quopri.decodestring(mime_element['subject']).decode('utf-8')
+    mail_subject=mime_element['subject']
+    mail_subject= make_header(decode_header(mail_subject))
+    
+    sender = mime_element['from']
+    reciever = mime_element['to']
+    for char in sender:
+        sender=sender.replace('\"', "")
+    for char in reciever:
+        reciever=reciever.replace('\"', "")
+
     return {
-        'subject': str((make_header(decode_header(mail_subject)))),
-        'from': mime_element['from'],
-        'to': mime_element['to']
+        'subject': str(Header(str(mail_subject))),
+        'from': sender,
+        'to': reciever
     }
 
 @eel.expose
@@ -134,12 +143,22 @@ def get_mail_body(msg_id):
     mime_element = MAIL_SERVICE.get_mime(msg_id)
     body=MAIL_SERVICE.mail_body(mime_element)
     if body is None:
-        body = mime_element.get_payload()[0].get_payload()
+        try:
+            body = mime_element.get_payload()[0].get_payload()
+        except:
+            body = mime_element.get_payload()
+    sender = mime_element['from']
+    reciever = mime_element['to']
+    mail_subject=mime_element['subject']
+    for char in sender:
+        sender=sender.replace('\"', "")
+    for char in reciever:
+        reciever=reciever.replace('\"', "")
     mail_contents = {
         'headers': {
-            'subject': mime_element['subject'],
-            'from': mime_element['from'],
-            'to': mime_element['to']
+            'subject': str((make_header(decode_header(mail_subject)))),
+            'from': sender,
+            'to': reciever
         },
         'body': body
     }
