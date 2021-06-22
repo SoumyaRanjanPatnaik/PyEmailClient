@@ -119,15 +119,32 @@ def get_mail_header(msg_id, user_id='me'):
     global MAIL_SERVICE
     
     mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
-    mail_subject=mime_element['subject']
-    mail_subject= make_header(decode_header(mail_subject))
+    mail_subject, sender, reciever, sender = (None for i in range(4))
+
+    try:
+        mail_subject=mime_element['subject']
+    except:
+        pass
+
+    try:
+        sender = mime_element['from']
+    except:
+        pass
+    try:
+        reciever = mime_element['to']
+    except:
+        pass
     
-    sender = mime_element['from']
-    reciever = mime_element['to']
-    for char in sender:
-        sender=sender.replace('\"', "")
-    for char in reciever:
-        reciever=reciever.replace('\"', "")
+    try:
+        for char in sender:
+            sender=sender.replace('\"', "")
+    except:
+        pass
+    try:
+        for char in reciever:
+            reciever=reciever.replace('\"', "")
+    except:
+        pass
 
     return {
         'subject': str(Header(str(mail_subject))),
@@ -150,10 +167,16 @@ def get_mail_body(msg_id):
     sender = mime_element['from']
     reciever = mime_element['to']
     mail_subject=mime_element['subject']
-    for char in sender:
-        sender=sender.replace('\"', "")
-    for char in reciever:
-        reciever=reciever.replace('\"', "")
+    try:
+        for char in sender:
+            sender=sender.replace('\"', "")
+    except:
+        pass
+    try:
+        for char in reciever:
+            reciever=reciever.replace('\"', "")
+    except:
+        pass
     mail_contents = {
         'headers': {
             'subject': str((make_header(decode_header(mail_subject)))),

@@ -14,8 +14,7 @@
 }
 
 #mail-body{
-    border: none;
-    box-shadow: rgb(116, 116, 116) -0.7px 0.7px 2.6px;
+    border: 1px solid black;
     height: 100%;
     margin-bottom:5px;
     font-family: 'Courier New', Courier, monospace;
