@@ -1,161 +1,112 @@
 <!-- Home Page -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>EmailClient</title>
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Linking to CSS -->
-    <link rel="stylesheet" type="text/css" href="./css/vars.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./css/MainScreen/animations.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./css/MainScreen/maillist.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./css/MainScreen/mediaqueries.css"
-    />
-    <link rel="stylesheet" type="text/css" href="./css/MainScreen/nav.css" />
-    <link rel="stylesheet" type="text/css" href="./css/MainScreen/topbar.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./css/MainScreen/readmail.css"
-    />
-    <link rel="stylesheet" type="text/css" href="borders.css" />
-    <link rel="stylesheet" type="text/css" href="./css/MainScreen/body.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./css/MainScreen/compose.css"
-    />
-    <!-- For Icons  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+  <title>EmailClient</title>
 
-    <!-- For Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Itim&family=Mali:ital,wght@1,300&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Linking to CSS -->
+  <link rel="stylesheet" type="text/css" href="./css/vars.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/animations.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/maillist.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/mediaqueries.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/nav.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/topbar.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/readmail.css" />
+  <link rel="stylesheet" type="text/css" href="borders.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/body.css" />
+  <link rel="stylesheet" type="text/css" href="./css/MainScreen/compose.css" />
+  <!-- For Icons  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
-    <script src="./eel.js"></script>
-    <script src="./js/theme_toggle.js"></script>
-    <script>
-        theme_toggle();
-    </script>
-  </head>
+  <!-- For Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Itim&family=Mali:ital,wght@1,300&display=swap"
+    rel="stylesheet" />
 
-  <body id="body">
-    <!-- Top Bar with search, name, logo, settings, etc  -->
-    <header id="topbar">
-      <div id="mail-logo">
-        <span class="material-icons"> email </span>
-        <strong class="bold-text" style="padding: 0px 2px">PyMail</strong>
-      </div>
-      <form id="search-bar" onsubmit="return false">
-        <input
-          type="search"
-          name="Search"
-          id="search-field"
-          class="search"
-          placeholder="Search Mail"
-        />
-        <input
-          type="image"
-          src="./img/Logos/search_light.png"
-          id="search-now"
-          class="search"
-        />
+  <script src="./eel.js"></script>
+  <script src="./js/theme_toggle.js"></script>
+  <script>
+    theme_toggle();
+  </script>
+</head>
+
+<body id="body">
+  <!-- Top Bar with search, name, logo, settings, etc  -->
+  <header id="topbar">
+    <div id="mail-logo">
+      <span class="material-icons"> email </span>
+      <strong class="bold-text" style="padding: 0px 2px">PyMail</strong>
+    </div>
+    <form id="search-bar" onsubmit="return false">
+      <input type="search" name="Search" id="search-field" class="search" placeholder="Search Mail" />
+      <input type="image" src="./img/Logos/search_light.png" id="search-now" class="search" />
+    </form>
+    <span id="theme_toggle" class="material-icons icons" onclick="javasctipt:theme_toggle(1)">settings</span>
+  </header>
+
+  <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
+  <div class="menu-bar scrollable">
+    <ul id="label">
+      <li id="INBOX" class="active" onclick='load_label(this.id)'><a href="#"><i class="fas fa-inbox"></i><span>
+            INBOX</span></a></li>
+      <li id="SENT" onclick='load_label(this.id)'><a href="#"><i class="fas fa-share-square"></i><span> SENT</span></a>
+      </li>
+      <li id="STARRED" onclick='load_label(this.id)'><a href="#"><i class="fas fa-star"></i><span>STARRED</span></a>
+      </li>
+      <li id="IMPORTANT" onclick='load_label(this.id)'><a href="#"><i
+            class="fas fa-save"></i><span>IMPORTANT</span></a></li>
+      <li id="TRASH" onclick='load_label(this.id)'><a href="#"><i class="fas fa-trash-alt"></i><span>TRASH</span></a>
+      </li>
+      <li id="SPAM" onclick='load_label(this.id)'><a href="#"><i class="fas fa-sign-out-alt"></i>SPAM</a></li>
+      <li id="UNREAD" onclick='load_label(this.id)'><a href="#"><i class="fas fa-envelope-open"></i>UNREAD</a></li>
+    </ul>
+  </div>
+
+  <!-- Listing mails with subjects, sender's email id and a preview of mail -->
+  <div id="maillist" class="">
+    <ul id="maillist-ul"></ul>
+    <!-- Populate with list of mails using javascript -->
+  </div>
+
+  <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
+  <div id="readmail" class="scrollable"></div>
+
+  <span id="compose-icon" class="material-icons" onclick="javascript:toggle_compose()">add_circle</span>
+
+  <div class="wrapper">
+    <div id="compose-window" class="border">
+      <form id="compose-form">
+        <input id="email" class="mail-input" type="email" placeholder="Email ID" name="email" />
+        <div class="line"></div>
+        <input id="compose-subject" class="mail-input" type="email" placeholder="Subject" />
+        <div class="line"></div>
+        <textarea name="mail-content" class="mail-input" id="mail-content"
+          placeholder="Write your mail here..."></textarea>
       </form>
-      <span
-        id="theme_toggle"
-        class="material-icons icons"
-        onclick="javasctipt:theme_toggle(1)"
-        >settings</span
-      >
-    </header>
-
-    <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
-    <div class="menu-bar scrollable">
-      <ul id="label"></ul>
     </div>
+  </div>
+  <button id="send-mail">
+    <span class="material-icons" onclick="javascript:sendmail()">send</span>
+  </button>
 
-    <!-- Listing mails with subjects, sender's email id and a preview of mail -->
-    <div id="maillist" class="">
-      <ul id="maillist-ul"></ul>
-      <!-- Populate with list of mails using javascript -->
-    </div>
-
-    <!-- Section to read the mail. Has subject, sender's name and mail, attatchments, etc -->
-    <div id="readmail" class="scrollable"></div>
-
-    <span
-      id="compose-icon"
-      class="material-icons"
-      onclick="javascript:toggle_compose()"
-      >add_circle</span
-    >
-
-    <div class="wrapper">
-      <div id="compose-window" class="border">
-        <form id="compose-form">
-          <input
-            id="email"
-            class="mail-input"
-            type="email"
-            placeholder="Email ID"
-            name="email"
-          />
-          <div class="line"></div>
-          <input
-            id="compose-subject"
-            class="mail-input"
-            type="email"
-            placeholder="Subject"
-          />
-          <div class="line"></div>
-          <textarea
-            name="mail-content"
-            class="mail-input"
-            id="mail-content"
-            placeholder="Write your mail here..."
-          ></textarea>
-        </form>
-      </div>
-    </div>
-    <button id="send-mail">
-      <span class="material-icons" onclick="javascript:sendmail()">send</span>
-    </button>
-
-    <!-- import javascript -->
-    <script src="./js/labels.js"></script>
-    <script src="./js/listmail.js"></script>
-    <script src="./js/compose-button.js"></script>
-    <script src="./js/send.js"></script>
-    <script src="./js/readmail.js"></script>
-    <script>
-      getlabels();
-      listmail();
+  <!-- import javascript -->
+  <script src="./js/labels.js"></script>
+  <script src="./js/listmail.js"></script>
+  <script src="./js/compose-button.js"></script>
+  <script src="./js/send.js"></script>
+  <script src="./js/readmail.js"></script>
+  <script>
+    getlabels();
+    listmail();
       //    await Promise.all([getlabels(), listmail()]);
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
