@@ -63,25 +63,13 @@ class mail:
         Get labels of the user. Labels are the folders into which the 
         mail is categorised. This also includes the folders/labels
         created by the user for their Gmail account.
-
+        
         RETURNS: 
-        A dictionary with two elements:
-
-            1. 'imp':   The value of this key contains the most used labels.
-
-            2. 'other': The value of this key contains the labels that indicate categories (like updates, promotions, social, etc)
+        A list containing multiple dictionaries containing details about the labels.
         """
         print('in labels')
         results = self.service.users().labels().list(userId='me').execute()
-        labels_details = results.get('labels', [])
-        labels = []
-        others = []
-        for i in labels_details:
-            if 'CATEGORY' in i['name']:
-                others.append(i['name'].replace("CATEGORY_", ""))
-            else:
-                labels.append(i['name'])
-        return {'imp': labels, 'other': others}
+        return results.get('labels', [])
 
     def search_message(self, search_string='in:inbox', user_id='me'):
         """

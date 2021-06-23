@@ -40,7 +40,7 @@ def start_client(page_to_load, PORT=8563):
 @eel.expose
 def token_exists():
     """
-    Checks if the token already exists. 
+    Checks if the token already exists (User has logged in before). 
 
     RETURNS:
     True: If token already exists.

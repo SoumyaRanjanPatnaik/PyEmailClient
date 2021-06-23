@@ -7,7 +7,6 @@
 	3. [Search Mail](#search)
 	4. [Navigate Labels](#navigate)
 	5. [Compose](#compose)
-4. [Understanding the code](#code)
 5. [Packages Used](#packages)
 6. [Contributors](#contributors)
 # Introduction <a id="intro"></a>
@@ -131,7 +130,6 @@ On clicking, the compose window opens up and the plus icon rotates to become the
 
 Click on the settings icon in the top-right corner of the screen. This should toggle the theme from light to dark. Also, the theme that you last chose will load by default. 
 
-# Understanding the code<a id='code'></a>
 # Packages Used<a id='packages'></a>
 1. Gmail API
 2. Python Eel
