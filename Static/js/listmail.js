@@ -23,9 +23,11 @@ async function listmail(query=null, show_query=true, above_subject='from'){
 		alert("No results found");
 		
 	}
+	else{
 	name_to_show = above_subject;
 	console.log(ids)
 	append_list();
+	}
 }
 
 async function append_list(){
