@@ -52,6 +52,9 @@ function stop_maillist(){
 	requestAnimationFrame(()=>{
 		cancelAnimationFrame(reset);
 		maillist.innerHTML=`<p style="text-align: center; color: red">LOADING...</p>`
+		index = 0;
+		flag = true;
+		ids = null;
 	})
 }
 
