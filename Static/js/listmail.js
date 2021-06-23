@@ -31,12 +31,14 @@ async function listmail(query=null, show_query=true, above_subject='from'){
 }
 
 async function append_list(){
-
-		let header = await eel.get_mail_header(ids[index])();
-		console.log(ids[index])
-		maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='mail_prev_focus(this.id); readmail(this.id)'><h2 class='from'>"+header[name_to_show]+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
-		index++;
-		reset = requestAnimationFrame(append_list);
+	if(index>=ids.length){
+		return;
+	}
+	let header = await eel.get_mail_header(ids[index])();
+	console.log(ids[index])
+	maillist.innerHTML+="<li class='mail-prev' id='"+ids[index]+"' onclick='mail_prev_focus(this.id); readmail(this.id)'><h2 class='from'>"+header[name_to_show]+"</h2><h2 class='subject'>"+header['subject']+"</h2></li>"
+	index++;
+	reset = requestAnimationFrame(append_list);
 
 } 
 
