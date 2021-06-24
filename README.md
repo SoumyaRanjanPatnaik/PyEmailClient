@@ -62,7 +62,7 @@ To setup the project, follow the following steps:
 
 	Similarly, for linux, run
 
-	python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json:." --add-data "client_secret.json:." --add-data "token_gmail_v1.pickle:." --noconsole --icon  "./assets/logo.ico"
+		python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json:." --add-data "client_secret.json:." --add-data "token_gmail_v1.pickle:." --noconsole --icon  "./assets/logo.ico"
 
 	Make sure you have a _client_secret.json_ file and _toke_gmail_v1.pickle_ file before building. If it is not present, you can crerate blank files with the above mentioned file names too.
 
