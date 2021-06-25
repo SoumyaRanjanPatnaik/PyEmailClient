@@ -1,6 +1,7 @@
 # Table of Contents:
 1. [Introduction](#intro)
 2. [Building PyEmailClient](#build)
+2. [Pre-Requisites](#prereq)
 3. [Usage](#usage)
 	1. [Login](#login)
 	2. [Email Dashboard](#dash)
@@ -24,7 +25,14 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.ecma-international.org/technical-committees/tc39/)
 [![GoogleChrome](https://img.shields.io/badge/Google_chrome-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white)](https://www.google.com/intl/en_in/chrome/)
 
-**_PyMail_**(_PyEmailClient_) is fully functional, cross-platform Email Client for sending and browsing emails, written in Python. It only works for gmail accounts for now.
+**_PyMail_**(_PyEmailClient_) is a  fully functional, cross-platform Desktop Email Client capable of sending and browsing emails, written in Python and based of chromium. It only works for gmail accounts for now.
+
+#Pre-Requisites<a id='prereq'></a>
+
+* Anaconda CLI
+* Chromium
+
+**NOTE**: White the project does work with other browsers, it is recommended to install a chromium based browser for the best exprience.
 
 # Building PyEmailClient <a id="build"></a>
 
@@ -32,70 +40,73 @@ To setup the project, follow the following steps:
 
 1.  Clone the repository into the directory of your choice and open the PyEmailClient directory.
 
-        git clone git@github.com:SoumyaRanjanPatnaik/PyEmailClient.git
-        cd PyEmailClient
+	```bash
+	git clone git@github.com:SoumyaRanjanPatnaik/PyEmailClient.git
+	cd PyEmailClient
+	```
 
 2.  Download and install anaconda if not already installed. Visit https://conda.io/projects/conda/en/latest/user-guide/install/index.html to download it for your operating sytem. If you are on linux/MacOS, you can also intall it using the package manager included with your distro or use HomeBrew (Mac Users only).
 
 	**NOTE**: If you are installing using graphical installer, make sure you select the add to path checkbox while installation, otherwise you will have to specify the absolute path of the anaconda executable instead of just typing _'conda'_
 
 3.  Setup and activate anaconda environment.
-
-		conda env create -f environment.yml
-        conda activate EmailClient
-
+	```
+	conda env create -f environment.yml
+    conda activate EmailClient
+	```
     This will install all the required libraries and dependencies required for running PyMail inside the environment '_EmailClient_' and activate it. You are all set for reviewing the codebase, making changes and contributing to this repository.
 
 4.  To run the program, first make sure that you are inside the _EmailClient_ anaconda environment. Then run the _Main.py_ python file.
-
-		python Main.py
-
+	```bash
+	python Main.py
+	```
     The application should automatically open up.
 
 5.  To build the distributable PyMail application, execute the _build.sh_ bash-script if you are on linux, _build_windows.sh_ if you are on windows or _build_mac.sh_ if you are on Mac OS. Mac users need to make sure you have bash shell installed in their terminal and windows users need to have 
 
 	**On Linux**:
-
-        ./build.sh
-
+	```bash
+    ./build.sh
+	```
 	**On Windows**:
-
-		./build_windows.sh
-
+	```bash
+	./build_windows.sh
+	```
 	**On Mac OS**:
-
-		./build_mac.sh
-			
+	```bash
+	./build_mac.sh
+	```		
 
     A _build.bat_ file will soon be added to this repository, which will allow for easily building PyMail from winows.
 
 	Alternatively, on windows, you can run the following command
-
-		python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json;." --add-data "client_secret.json;." --add-data "token_gmail_v1.pickle;." --noconsole --icon='assets/logo.ico'
+	```bash
+	python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json;." --add-data "client_secret.json;." --add-data "token_gmail_v1.pickle;." --noconsole --icon='assets/logo.ico'
+	```
 
 	Similarly, for linux, run
-
-		python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json:." --add-data "client_secret.json:." --add-data "token_gmail_v1.pickle:." --noconsole --icon  "./assets/logo.ico"
-
+	```bash
+	python -m eel Main.py Static -n "PyEmailClient" --add-data "theme.json:." --add-data "client_secret.json:." --add-data "token_gmail_v1.pickle:." --noconsole --icon  "./assets/logo.ico"
+	```
 	Make sure you have a _client_secret.json_ file and _toke_gmail_v1.pickle_ file before building. If it is not present, you can crerate blank files with the above mentioned file names too.
-
-    	touch token_gmail_v1.pickle
-    	touch client_secret.json
-
+	```bash
+    touch token_gmail_v1.pickle
+    touch client_secret.json
+	```
 6. To view your distributable, open the dist/PyEmailClient/ directory and run PyEmailClient or PyEmailClient.exe(in case of windows).
 
 	You can also type the following commands on the terminal:
 
 	**On Linux and Mac OS**:
-		
-		cd dist/PyEmailClient
-		./PyEmailClient
-
+	```bash
+	cd dist/PyEmailClient
+	./PyEmailClient
+	```
 	**On Windows**:
-
-		cd dist\PyEmailClient
-		.\PyEmailClient.exe
-
+	```bash
+	cd dist\PyEmailClient
+	.\PyEmailClient.exe
+	```
 
 # Usage <a id="usage"></a>
 
