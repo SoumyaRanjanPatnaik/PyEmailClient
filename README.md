@@ -11,7 +11,7 @@
 6. [Contributors](#contributors)
 # Introduction <a id="intro"></a>
 
-[![](./Static/img/Logos/EmailLogoSmaill.svg) Downloads](https://github.com/SoumyaRanjanPatnaik/PyEmailClient/releases/tag/v1.2.1)
+[![](./Static/img/Logos/EmailLogoSmall.svg) Downloads](https://github.com/SoumyaRanjanPatnaik/PyEmailClient/releases/tag/v1.2.1)
 
 **_PyMail_**(_PyEmailClient_) is fully functional, cross-platform Email Client for sending and browsing emails, written in Python. It only works for gmail accounts for now.
 
