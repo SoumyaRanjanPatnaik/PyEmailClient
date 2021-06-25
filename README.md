@@ -11,6 +11,19 @@
 6. [Contributors](#contributors)
 # Introduction <a id="intro"></a>
 
+![LICENCE: MIT](https://img.shields.io/github/license/soumyaranjanpatnaik/pyemailclient)
+![total lines](https://img.shields.io/tokei/lines/github/soumyaranjanpatnaik/pyemailclient)
+![Contributors](https://img.shields.io/github/contributors/soumyaranjanpatnaik/pyemailclient)
+![release date](https://img.shields.io/github/release-date/soumyaranjanpatnaik/pyemailclient)
+[![total downloads](https://img.shields.io/github/v/release/soumyaranjanpatnaik/pyemailclient)](https://github.com/SoumyaRanjanPatnaik/PyEmailClient/releases/tag/v1.2.1) 
+
+
+[![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)](https://www.python.org/)
+[![HTML5](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)](https://www.w3.org/html/logo/)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/Overview.en.html)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.ecma-international.org/technical-committees/tc39/)
+[![GoogleChrome](https://img.shields.io/badge/Google_chrome-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white)](https://www.google.com/intl/en_in/chrome/)
+
 **_PyMail_**(_PyEmailClient_) is fully functional, cross-platform Email Client for sending and browsing emails, written in Python. It only works for gmail accounts for now.
 
 # Building PyEmailClient <a id="build"></a>
