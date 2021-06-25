@@ -13,6 +13,7 @@ async function theme(toggle=0){
 	let curr_theme = JSON.parse(curr_theme_string)
 	curr_theme.value=(curr_theme.value+toggle)%2;
 	if (curr_theme.value==0){
+		//Dark theme values
 		document.documentElement.style.setProperty("--primary-color"," rgba(0, 0, 0, 0.96)")
 		document.documentElement.style.setProperty("--secondary-color"," rgba(2, 150, 2, 0.986)")
 		document.documentElement.style.setProperty("--ternary-color","rgb(46, 46, 46)")
@@ -26,6 +27,7 @@ async function theme(toggle=0){
 	}
 	
 	else{
+		//Light Thmme values
 		document.documentElement.style.setProperty("--primary-color"," rgb(250, 250, 250)")
 		document.documentElement.style.setProperty("--secondary-color"," rgba(58, 173, 255, 0.774)")
 		document.documentElement.style.setProperty("--ternary-color","rgb(233, 233, 233)")

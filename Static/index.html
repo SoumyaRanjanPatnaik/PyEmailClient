@@ -48,7 +48,10 @@
       <input type="search" name="Search" id="search-field" class="search" placeholder="Search Mail" />
       <input type="image" src="./img/Logos/search_light.png" id="search-now" class="search" />
     </form>
-    <span id="theme_toggle" class="material-icons icons" onclick="javasctipt:theme(1)">settings</span>
+    <div id = 'topbar-right-container'>
+      <span id='logout'>Log Out</span>
+      <span id="theme_toggle" class="material-icons icons" onclick="javasctipt:theme(1)">settings</span>
+    </div>
   </header>
 
   <!-- sidebar/navbar for inbox, sent, trash, spam, etc  -->
@@ -102,6 +105,7 @@
   <script src="./js/compose-button.js"></script>
   <script src="./js/send.js"></script>
   <script src="./js/readmail.js"></script>
+  <script src="./js/logout.js"></script>
   <script>
     getlabels();
     listmail();

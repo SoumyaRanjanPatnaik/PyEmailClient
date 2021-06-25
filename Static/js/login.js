@@ -19,6 +19,8 @@ function login() {
   window.open("./index.html", "_self");
 }
 
+eel.token_exists()(check);
+
 function check(token){
   
   if (token == 'True'){
@@ -28,7 +30,3 @@ function check(token){
     button.innerHTML="Continue to PyMail"
   }
 }
-
-eel.token_exists()(check);
-
-
