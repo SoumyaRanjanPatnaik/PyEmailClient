@@ -27,7 +27,7 @@
 
 **_PyMail_**(_PyEmailClient_) is a  fully functional, cross-platform Desktop Email Client capable of sending and browsing emails, written in Python and based of chromium. It only works for gmail accounts for now.
 
-#Pre-Requisites<a id='prereq'></a>
+# Pre-Requisites<a id='prereq'></a>
 
 * Anaconda CLI
 * Chromium-Based Browser
