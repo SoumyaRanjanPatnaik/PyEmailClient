@@ -83,4 +83,27 @@ on hovering on it  */
 
 #theme_toggle:active{
     filter: invert(0.8);
+    border-radius: 50%;
+}
+
+#logout{
+    color: var(--text-color);
+    text-decoration: none;
+}
+#logout:hover{
+    cursor: pointer;
+    border-bottom: 1px solid var(--text-color);
+    padding: 1px 0;
+}
+
+#logout:active{
+    color: var(--text-color-secondary);
+    transform: scale(0.95);
+}
+
+#topbar-right-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
 }

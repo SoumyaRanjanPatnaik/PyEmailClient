@@ -1,4 +1,5 @@
 from os import path, error
+import os
 import eel
 import random
 from pkg import mail
@@ -198,6 +199,13 @@ def theme_write(theme_json):
     f = open("theme.json", 'w')
     f.write(theme_json)
 
+@eel.expose
+def logout():
+    try:
+        os.remove('token_gmail_v1.pickle')
+        return False
+    except Exception:
+        return False
 if __name__ == '__main__':
     print(" in main")
     port = random.randint(5000, 8000)
