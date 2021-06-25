@@ -1,11 +1,10 @@
-from os import path, error
+from os import path
 import os
 import eel
 import random
 from pkg import mail
-import quopri
 from email.header import Header, decode_header, make_header
-import re
+import sys
 
 
 eel.init('Static')
@@ -206,6 +205,10 @@ def logout():
         return False
     except Exception:
         return False
+
+@eel.expose
+def terminate():
+    sys.exit()
 if __name__ == '__main__':
     print(" in main")
     port = random.randint(5000, 8000)
