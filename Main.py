@@ -136,13 +136,11 @@ def get_mail_header(msg_id, user_id='me'):
         pass
     
     try:
-        for char in sender:
-            sender=sender.replace('\"', "")
+        sender=sender.replace('"', '')
     except:
         pass
     try:
-        for char in reciever:
-            reciever=reciever.replace('\"', "")
+        reciever=reciever.replace('"', '')
     except:
         pass
 
