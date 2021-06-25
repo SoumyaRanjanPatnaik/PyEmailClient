@@ -130,10 +130,9 @@ class mail:
             # grab the message instance
             message = self.service.users().messages().get(userId=user_id, id=msg_id,format='raw', metadataHeaders=None).execute()
 
-            # decode the raw string, ASCII works pretty well here
+            # decode the raw string, UTF-8 works pretty well here
             msg_str = base64.urlsafe_b64decode(message['raw'].encode('UTF-8'))
 
-            # grab the string from the byte object
             mime_msg = email.message_from_bytes(msg_str,policy=policy.default)
             return mime_msg
         except Exception:

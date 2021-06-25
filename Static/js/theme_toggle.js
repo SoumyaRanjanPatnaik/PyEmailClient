@@ -1,9 +1,17 @@
 
 
-async function theme_toggle(add_val=0){
+async function theme(toggle=0){
+	/*
+	Funnction to load or toggle theme.
+
+	PARAMS:
+		toggle: function won't toggle theme (loads theme) if toggle =0, 
+				and if toggle is 1.
+	RETURNS: true
+	*/
 	let curr_theme_string=await eel.theme_read()();
 	let curr_theme = JSON.parse(curr_theme_string)
-	curr_theme.value=(curr_theme.value+add_val)%2;
+	curr_theme.value=(curr_theme.value+toggle)%2;
 	if (curr_theme.value==0){
 		document.documentElement.style.setProperty("--primary-color"," rgba(0, 0, 0, 0.96)")
 		document.documentElement.style.setProperty("--secondary-color"," rgba(2, 150, 2, 0.986)")
