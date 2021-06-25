@@ -30,7 +30,7 @@
 #Pre-Requisites<a id='prereq'></a>
 
 * Anaconda CLI
-* Chromium
+* Chromium-Based Browser
 
 **NOTE**: White the project does work with other browsers, it is recommended to install a chromium based browser for the best exprience.
 
