@@ -110,12 +110,30 @@ def send_mail(mail_to, mail_subject, emailMsg):
 
 @eel.expose
 def get_ids(query="in:inbox", user_id='me'):
+    """Get IDs for messages according to the search query
+
+    Args:
+        query (str, optional): Search Query. Defaults to "in:inbox".
+        user_id (str, optional): Defaults to 'me'.
+
+    Returns:
+        list: List of IDs that match query
+    """
     global MAIL_SERVICE
     return MAIL_SERVICE.search_message(query, user_id)
 
 
 @eel.expose
 def get_mail_header(msg_id, user_id='me'):
+    """Get the subject, sender's address and reciever's address
+
+    Args:
+        msg_id (str): Message ID for which header needs to be fetched.
+        user_id (str, optional):  Defaults to 'me'.
+
+    Returns:
+        dict
+    """
     global MAIL_SERVICE
     
     mime_element = MAIL_SERVICE.get_mime(msg_id, user_id)
